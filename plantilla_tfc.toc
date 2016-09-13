@@ -1,0 +1,34 @@
+\select@language {catalan}
+\select@language {spanish}
+\select@language {spanish}
+\select@language {english}
+\select@language {spanish}
+\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Introducci\IeC {\'o}}{1}{chapter*.2}
+\contentsline {chapter}{\numberline {1}Visi\IeC {\'o}n General del proyecto}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1.}Docker}{3}{section.1.1}
+\contentsline {section}{\numberline {1.2.}Aaaida}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3.}Motivaci\IeC {\'o}n}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4.}Objetivos}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5.}Organizaci\IeC {\'o}n del proyecto}{5}{section.1.5}
+\contentsline {chapter}{\numberline {2}Organitzaci\IeC {\'o} del treball}{7}{chapter.2}
+\contentsline {section}{\numberline {2.1.}P\IeC {\`a}gines preliminars}{7}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1.}Portada}{7}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2.}Resum}{7}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1.}Identificador del treball/projecte}{7}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {2.1.2.2.}Resum}{7}{subsubsection.2.1.2.2}
+\contentsline {subsection}{\numberline {2.1.3.}Dedicat\IeC {\`o}ria}{7}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4.}\IeC {\'I}ndex}{7}{subsection.2.1.4}
+\contentsline {section}{\numberline {2.2.}Cos del treball}{8}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1.}Introducci\IeC {\'o}}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2.}Confecci\IeC {\'o} dels cap\IeC {\'\i }tols}{8}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3.}F\IeC {\'o}rmules, figures i taules}{8}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1.}F\IeC {\'o}rmules}{8}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2.}Figures}{8}{subsubsection.2.2.3.2}
+\contentsline {subsubsection}{\numberline {2.2.3.3.}Taules}{10}{subsubsection.2.2.3.3}
+\contentsline {subsection}{\numberline {2.2.4.}Estudi d'ambientalitzaci\IeC {\'o}}{11}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5.}Bibliografia}{11}{subsection.2.2.5}
+\contentsline {section}{\numberline {2.3.}Ap\IeC {\`e}ndixs}{11}{section.2.3}
+\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Conclusions}{13}{chapter*.4}
+\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Bibliograf\'{\i }a}{15}{chapter*.6}
+\changetoapp 
+\contentsline {chapter}{\numberline {A}Exemple de prova d'un ap\IeC {\`e}ndix}{19}{appendix.A}
