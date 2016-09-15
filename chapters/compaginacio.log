@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2016.9.6)  12 SEP 2016 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  14 SEP 2016 17:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -235,12 +235,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no g in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
-Missing character: There is no n in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no r in font nullfont!
+Missing character: There is no l in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no a in font nullfont!
@@ -1012,7 +1007,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 12--13
 
 ! Undefined control sequence.
 l.14 \includegraphics
-                     [width=0.5\textwidth]{./setup/EETAC-positiu-negre}
+                     [width=0.5\textwidth]{./setup/dockerLogo}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1033,7 +1028,7 @@ Missing character: There is no 5 in font nullfont!
 <to be read again> 
                    ]
 l.14 \includegraphics[width=0.5\textwidth]
-                                          {./setup/EETAC-positiu-negre}
+                                          {./setup/dockerLogo}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
 look up `weird error' in the index to The TeXbook.)
@@ -1042,7 +1037,7 @@ look up `weird error' in the index to The TeXbook.)
 <to be read again> 
                    ]
 l.14 \includegraphics[width=0.5\textwidth]
-                                          {./setup/EETAC-positiu-negre}
+                                          {./setup/dockerLogo}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
 I'll assume that you meant to say pt, for printer's points.
@@ -1059,25 +1054,16 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no / in font nullfont!
-Missing character: There is no E in font nullfont!
-Missing character: There is no E in font nullfont!
-Missing character: There is no T in font nullfont!
-Missing character: There is no A in font nullfont!
-Missing character: There is no C in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no p in font nullfont!
+Missing character: There is no d in font nullfont!
 Missing character: There is no o in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no t in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no u in font nullfont!
-Missing character: There is no - in font nullfont!
-Missing character: There is no n in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no g in font nullfont!
 Missing character: There is no r in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
 
 ! LaTeX Error: \caption outside float.
 
@@ -1086,25 +1072,26 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.15 \caption
-             {Exemple de figura}
+             {Logotipo de Docker}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-Missing character: There is no E in font nullfont!
-Missing character: There is no x in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no m in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no p in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no e in font nullfont!
+Missing character: There is no o in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no f in font nullfont!
-Missing character: There is no i in font nullfont!
-Missing character: There is no g in font nullfont!
-Missing character: There is no u in font nullfont!
+Missing character: There is no D in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no k in font nullfont!
+Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
-Missing character: There is no a in font nullfont!
 
 ! LaTeX Error: \begin{document} ended by \end{figure}.
 
@@ -1133,11 +1120,6 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no i in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 21--22
-[] 
- []
-
 Missing character: There is no E in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -1613,12 +1595,163 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 23--25
+Overfull \hbox (20.0pt too wide) in paragraph at lines 21--24
 []
  []
 
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.24 \newpage
+             
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[1
 ! Undefined control sequence.
-l.26 \section
+<write> \newlabel{F:prova}{{}{\thepage 
+                                       }}
+l.24 \newpage
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{F:prova}{{}{}}
+]
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 \begin{figure}
+                   [htb]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no b in font nullfont!
+Missing character: There is no ] in font nullfont!
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 25--26
+[] 
+ []
+
+! Undefined control sequence.
+l.27 \includegraphics
+                     [width=0.5\textwidth]{./setup/aaaidaLogo}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+Missing character: There is no [ in font nullfont!
+Missing character: There is no w in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no h in font nullfont!
+Missing character: There is no = in font nullfont!
+Missing character: There is no 0 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 5 in font nullfont!
+! Missing number, treated as zero.
+<to be read again> 
+                   ]
+l.27 \includegraphics[width=0.5\textwidth]
+                                          {./setup/aaaidaLogo}
+A number should have been here; I inserted `0'.
+(If you can't figure out why I needed to see a number,
+look up `weird error' in the index to The TeXbook.)
+
+! Illegal unit of measure (pt inserted).
+<to be read again> 
+                   ]
+l.27 \includegraphics[width=0.5\textwidth]
+                                          {./setup/aaaidaLogo}
+Dimensions can be in units of em, ex, in, pt, pc,
+cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
+I'll assume that you meant to say pt, for printer's points.
+To recover gracefully from this error, it's best to
+delete the erroneous units; e.g., type `2' to delete
+two letters. (See Chapter 27 of The TeXbook.)
+
+Missing character: There is no ] in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no u in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no / in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no L in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.28 \caption
+             {Logotipo de Aaaida}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Missing character: There is no L in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no g in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no t in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no p in font nullfont!
+Missing character: There is no o in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no A in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no i in font nullfont!
+Missing character: There is no d in font nullfont!
+Missing character: There is no a in font nullfont!
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.31 \end{figure}
+                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+l.37 \section
              {MotivaciÃ³n}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1638,7 +1771,7 @@ Missing character: There is no Ã in font nullfont!
 Missing character: There is no ³ in font nullfont!
 Missing character: There is no n in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 26--27
+Overfull \hbox (20.0pt too wide) in paragraph at lines 37--38
 [] 
  []
 
@@ -2410,12 +2543,12 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 28--30
+Overfull \hbox (20.0pt too wide) in paragraph at lines 39--42
 []
  []
 
 ! Undefined control sequence.
-l.31 \section
+l.43 \section
              {Objetivos}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2433,7 +2566,7 @@ Missing character: There is no v in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 31--32
+Overfull \hbox (20.0pt too wide) in paragraph at lines 43--44
 [] 
  []
 
@@ -2504,12 +2637,12 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 33--34
+Overfull \hbox (20.0pt too wide) in paragraph at lines 45--46
 []
  []
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 35--35
+Overfull \hbox (20.0pt too wide) in paragraph at lines 47--47
 [] 
  []
 
@@ -2782,7 +2915,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
-l.44 \section
+l.56 \section
              {OrganizaciÃ³n del proyecto}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -2815,7 +2948,7 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 44--45
+Overfull \hbox (20.0pt too wide) in paragraph at lines 56--57
 []
  []
 
@@ -3022,7 +3155,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 46--47
+Overfull \hbox (20.0pt too wide) in paragraph at lines 58--59
 []
  []
 
@@ -3361,7 +3494,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 48--49
+Overfull \hbox (20.0pt too wide) in paragraph at lines 60--61
 []
  []
 
@@ -3559,7 +3692,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 50--51
+Overfull \hbox (20.0pt too wide) in paragraph at lines 62--63
 []
  []
 
@@ -3822,7 +3955,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no 5 in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 52--53
+Overfull \hbox (20.0pt too wide) in paragraph at lines 64--65
 []
  []
 
@@ -3997,7 +4130,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 54--55
+Overfull \hbox (20.0pt too wide) in paragraph at lines 66--67
 []
  []
 
@@ -4009,11 +4142,11 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 54--55
 
  
 Here is how much of TeX's memory you used:
- 9 strings out of 493030
- 185 string characters out of 6136261
- 55076 words of memory out of 5000000
- 3645 multiletter control sequences out of 15000+600000
+ 11 strings out of 493029
+ 205 string characters out of 6136235
+ 55079 words of memory out of 5000000
+ 3646 multiletter control sequences out of 15000+600000
  3640 words of font info for 14 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 6i,1n,6p,627b,65s stack positions out of 5000i,500n,10000p,200000b,80000s
-No pages of output.
+ 19i,4n,14p,522b,111s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!
