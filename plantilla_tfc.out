@@ -12,6 +12,10 @@
 \BOOKMARK [1][-]{section.2.2}{Qu\351 es Docker}{chapter.2}% 12
 \BOOKMARK [1][-]{section.2.3}{M\341quinas Virtuales vs Docker}{chapter.2}% 13
 \BOOKMARK [1][-]{section.2.4}{Porque Docker?}{chapter.2}% 14
-\BOOKMARK [0][-]{chapter*.4}{Conclusions}{}% 15
-\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 16
-\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 17
+\BOOKMARK [1][-]{section.2.5}{C\363mo funciona Docker?}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.5.1}{Arquitectura}{section.2.5}% 16
+\BOOKMARK [2][-]{subsection.2.5.2}{Creacion de Imagenes}{section.2.5}% 17
+\BOOKMARK [2][-]{subsection.2.5.3}{Docker Compose}{section.2.5}% 18
+\BOOKMARK [0][-]{chapter*.4}{Conclusions}{}% 19
+\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 20
+\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 21

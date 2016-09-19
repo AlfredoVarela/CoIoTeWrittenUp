@@ -40,6 +40,8 @@ Como se ha podido apreciar en los tipos de virtualización, esta conlleva una me
 
 \section{Qué es Docker}
 
+Docker es un proyecto Open Source basado en contenedores de Linux, es básicamente un motor de contenedores que usa características del Kernel de Linux.
+
 La idea detrás de Docker es crear contenedores ligeros y portables para las aplicaciones software que puedan ejecutarse en cualquier máquina con Docker instalado,
 independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues.
 
@@ -81,12 +83,12 @@ Por lo contrario Docker container incluyen la aplicación y todas sus dependenci
 \begin{center}
 \includegraphics[width=1\textwidth]{./setup/VrvsDocker}
 \caption{Comparativa de máquina virtual y Docker}
-\label{F:VrvsDocker}
+\label{Vs:VrvsDocker}
 \end{center}
 \end{figure}
 
-En la imagen se puede apreciar la diferencias comentadas anteriormente, mientras la primera columna sería la virtualización de 3 aplicaciones se puede ver que hay la capa intermedia del Hipervisor el cual nos permite ejecutar los sistemas operativos virtualizados, todos los binarios y librerías que requieren cada aplicación y finalmente la aplicación. 
-En la segunda columna tenemos la contenerización de 3 aplicaciones, podemos observar que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura donde se ejecuta, pero si son necesarios los binarios y las librerías.
+En la imagen \ref{Vs:VrvsDocker} se puede ver las diferencias comentadas anteriormente, mientras la primera columna sería la virtualización de 2 aplicaciones se puede dectectar que está la capa intermedia del Hipervisor el cual nos permite ejecutar los sistemas operativos virtualizados, todos los binarios y librerías que requieren cada aplicación y finalmente la aplicación. 
+En la segunda columna tenemos la contenerización de 2 aplicaciones, podemos observar que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura donde se ejecuta, pero si son necesarios los binarios y las librerías.
 A simple vista se puede apreciar que si eliminamos el sistema operativo la infraestructura completa se hace más liviana y rápida de ejecutar.
 
 \section{Porque Docker?}
@@ -101,3 +103,107 @@ La sencillez a la hora de mantener el sistema, si hay que hacer actualizaciones 
 
 Por todo esto se piensa que Docker puede ser una buena tecnología para desplegar sistemas de Iot. También se tiene en cuenta que la utilización de una Raspberry 3 no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente pero si que puede validar todas las funciones listadas anteriormente y servir como preámbulo para la utilización en el resto de despliegues.  
 
+\section{Cómo funciona Docker?}
+
+En este punto se explicara brevemente aspectos de la arquitectura, funcionamiento y puesta en marcha de Docker.  
+
+\subsection{Arquitectura}
+
+Docker usa una arquitectura cliente-servidor. El cliente de Docker se comunica con el Daemon de Docker para crear, ejecutar y distribuir los contenedores. El cliente como el Daemon puede estar en el mismo sistema o poder conectarte remotamente.
+Como Docker usa el kernel de linux para su ejecución si el sistema operativo del sistema no es este se deberá usar una pequeña capa extra en la arquitectura la cual sería una VM (boot Docker) para poder correr docker en la máquina. 
+
+\subsubsection{Cliente de Docker}
+
+Es la principal interfaz de usuario para docker, acepta los comandos del usuario y se comunica con el daemon de docker.
+
+\subsubsection{Imágenes de Docker (Docker Images)}
+
+Las imágenes de Docker son plantillas de solo lectura, que nos permitirá crear contenedores basados en su configuración.
+
+\subsubsection{Registros de Docker (Docker Registries)}
+
+Los registros de Docker guardan las imágenes, estos son repos públicos o privados donde podemos subir o descargar imágenes. Sería similar a GitHub para imágenes de docker (Docker Hub).
+
+\subsubsection{Contenedores de Docker (Docker Containers)}
+
+El contenedor de docker contiene todo lo necesario para ejecutar una aplicación. Cada contenedor se crea de una imagen de docker y es una plataforma aislada.
+\newline
+
+En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo sería la arquitectura básica. 
+
+El cliente podría hacer los comandos básicos de docker:
+
+\texttt{Docker Build}: Hace un build de un DockerFile y generar una imagen de docker, en la figura está representado siguiendo las flechas rojas en la cual podemos ver que el cliente se comunica con el Daemon y este genera la imagen. 
+
+\texttt{Docker Pull}: El cual nos permite descargar una imagen de los repositorios de Docker, en la imagen se puede observar siguiendo las flechas verdes. Que igual que el comando anterior se comunica el cliente con el Daemon para que este proceda a hacer la descarga de la imagen del repositorio. 
+
+\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de esta. Si seguimos las flechas azules, veremos como nuevamente el cliente al ejecutar esa comanda se comunica con el Daemon este busca la imagen a la cual se le quiere hacer ejecutar y se levanta un contenedor con la configuración de la imagen.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.90\textwidth]{./setup/Infraestructura}
+\caption{Infraestructura de Docker}
+\label{Inf:Infraestructura}
+\end{center}
+\end{figure}
+
+\subsection{Creacion de Imagenes}
+
+Como se comentó en el punto anterior las imágenes de docker son las plantillas para poder levantar los contenedores, por eso la importancia de saber crear imágenes y personalizarlas ya que solo permiten lectura y los cambios que hagamos en los contenedores no se verán reflejados en estas.
+
+La manera más sencilla de crear una imagen es descargarla del Docker Hub con el comando explicado con anterioridad:
+
+\begin{center}
+\texttt{docker pull [OPTIONS] NAME[:TAG|@DIGEST]}
+\end{center}
+
+Este comando nos permite descargar una imagen en una versión concreta o tag dependiendo de nuestras necesidades, por defecto si no se pone nada descargara la ultima. 
+
+\begin{center}
+\texttt{FOTO DE HACER UN PULL Y DEL DOCKER IMAGES}
+\end{center}
+
+En las figuras XX podemos apreciar como se descarga la última versión de la imagen de mongo y nos genera esta imagen. 
+
+Una vez tenemos la imagen pasaremos a levantar el contenedor para poder ejecutar el servicio con otro de los comandos explicados. 
+
+\begin{center}
+\texttt{docker run [OPTIONS] IMAGE [COMMAND] [ARG...]}
+\end{center}
+
+En las figuras se puede apreciar cómo utilizando el comando \texttt{docker ps} que nos permite ver que contenedores están levantados. No hay ninguno y al inicializar con el comando \texttt{docker run mongo} nos levanta el servicio y esta vez si aparece el contenedor.
+\newline
+
+La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentra todos los comandos que se deben ejecutar para generar nuestra imagen.
+
+El comando \texttt{docker build} comunica al daemon de docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen. Este proceso se va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una cache que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo y no compilarlo todo de nuevo. 
+
+\begin{center}
+\texttt{Explicacioens de la imagen del dockerfile}
+\end{center}
+
+\subsection{Docker Compose}
+
+Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez.
+Se creará un archivo docker-compose.yml donde se configurar todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con estas los contenedores especificados a la vez que arrancará la aplicación.
+\pagebreak
+
+Los comandos que se utilizarán serán similares a los utilizados en la creación de imágenes.
+
+\begin{center}
+\texttt{docker-compose up}
+\end{center} 
+
+Permite ejecutar el servicio y se nos levante todos los contenedores.
+
+\begin{center}
+\texttt{docker-compose stop}
+\end{center} 
+
+Detendrá el servicio y detener los contenedores. 
+\newline
+
+Docker-compose también nos permite ejecutar solo partes del.yml para levantar solo algunos de los contenedores igual que detener solo algunos de ellos, pasándole por parámetro el nombre del contenedor. 
+\begin{center}
+\texttt{EL YML Y SUS EXPLICACIOENS}
+\end{center} 
