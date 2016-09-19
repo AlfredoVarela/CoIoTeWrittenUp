@@ -205,5 +205,28 @@ Detendrá el servicio y detener los contenedores.
 
 Docker-compose también nos permite ejecutar solo partes del.yml para levantar solo algunos de los contenedores igual que detener solo algunos de ellos, pasándole por parámetro el nombre del contenedor. 
 \begin{center}
-\texttt{EL YML Y SUS EXPLICACIOENS}
+\begin{verbatim}
+version: '2'
+services:
+ mongo:
+  container_name: mongo
+  restart: always
+  image: partlab/ubuntu-arm-mongodb
+  volumes:
+   - mongo-data:/data/db
+  command: /usr/bin/mongod --smallfiles --journal
+ aaaida:
+  container_name: aaaidaArm
+  restart: always
+  image: alteraid/aaaida-datastore-arm
+  links:
+   - mongo:mongo 
+  environment:
+   - NODE_ENV=docker
+  ports:
+   - "40000:40000"
+volumes:
+ mongo-data:
+   driver: local
+\end{verbatim}
 \end{center} 
