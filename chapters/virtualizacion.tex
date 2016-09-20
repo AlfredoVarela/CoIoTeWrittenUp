@@ -159,19 +159,36 @@ La manera más sencilla de crear una imagen es descargarla del Docker Hub con el
 
 Este comando nos permite descargar una imagen en una versión concreta o tag dependiendo de nuestras necesidades, por defecto si no se pone nada descargara la ultima. 
 
+\begin{figure}[htb]
 \begin{center}
-\texttt{FOTO DE HACER UN PULL Y DEL DOCKER IMAGES}
+\subfigure[Docker pull]{\includegraphics[width=0.90\textwidth]{./setup/DockerPull}}
+\subfigure[Docker images]{\includegraphics[width=0.90\textwidth]{./setup/DockerImages}}
+\caption{Comandos de docker (I)}
+\label{Com1:ComandosDocker1}
 \end{center}
+\end{figure}
 
-En las figuras XX podemos apreciar como se descarga la última versión de la imagen de mongo y nos genera esta imagen. 
+En las figuras \ref{Com1:ComandosDocker1} podemos apreciar como se descarga la última versión de la imagen de mongo y nos genera la imagen. 
 
-Una vez tenemos la imagen pasaremos a levantar el contenedor para poder ejecutar el servicio con otro de los comandos explicados. 
+Una vez tenemos la imagen se pasara a levantar el contenedor para poder ejecutar el servicio, con otro de los comandos explicados. 
 
 \begin{center}
 \texttt{docker run [OPTIONS] IMAGE [COMMAND] [ARG...]}
 \end{center}
+\pagebreak 
 
-En las figuras se puede apreciar cómo utilizando el comando \texttt{docker ps} que nos permite ver que contenedores están levantados. No hay ninguno y al inicializar con el comando \texttt{docker run mongo} nos levanta el servicio y esta vez si aparece el contenedor.
+\begin{figure}[htb]
+\begin{center}
+\subfigure[Docker ps]{\includegraphics[width=0.90\textwidth]{./setup/DockerPs}}
+\subfigure[Docker run]{\includegraphics[width=0.90\textwidth]{./setup/DockerRun}}
+\subfigure[Docker ps]{\includegraphics[width=0.90\textwidth]{./setup/DockerPsDespues}}
+\caption{Comandos de docker (II)}
+\label{Com2:ComandosDocker2}
+\end{center}
+\end{figure}
+
+
+En las figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que nos permite ver que contenedores están levantados,no hay ninguno (a) y al inicializar con el comando \texttt{docker run mongo} nos levanta el servicio (b) y esta vez si aparece el contenedor (c).
 \newline
 
 La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentra todos los comandos que se deben ejecutar para generar nuestra imagen.
