@@ -1,6 +1,6 @@
 \chapter{Virtualización}
 
-\section{Qué es la virtualización}
+\section{¿Qué es la virtualización?}
 
 La virtualización es la creación de una versión virtual basada en software de algo, en lugar de una física. Se puede aplicar a sistemas operativos, almacenamiento, servidores, aplicaciones, redes… y es una manera de reducir gastos, aumentar eficiencia y agilidad en las empresas.  
 
@@ -38,7 +38,7 @@ Como se ha podido apreciar en los tipos de virtualización, esta conlleva una me
 \item Simplifica la gestión del centro de datos. 
 \end{itemize}
 
-\section{Qué es Docker}
+\section{¿Qué es Docker?}
 
 Docker es un proyecto Open Source basado en contenedores de Linux, es básicamente un motor de contenedores que usa características del Kernel de Linux.
 
@@ -91,7 +91,7 @@ En la imagen \ref{Vs:VrvsDocker} se puede ver las diferencias comentadas anterio
 En la segunda columna tenemos la contenerización de 2 aplicaciones, podemos observar que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura donde se ejecuta, pero si son necesarios los binarios y las librerías.
 A simple vista se puede apreciar que si eliminamos el sistema operativo la infraestructura completa se hace más liviana y rápida de ejecutar.
 
-\section{Porque Docker?}
+\section{¿Por qué Docker?}
 
 Por lo motivos listados en el apartados anteriores se decidió en utilizar Docker para realizar el despliegue de las aplicaciones, ya que se necesita de una tecnología la cual pueda ser almacenada en dispositivos con una memoria reducida en este caso docker la cumple. 
 
@@ -103,7 +103,7 @@ La sencillez a la hora de mantener el sistema, si hay que hacer actualizaciones 
 
 Por todo esto se piensa que Docker puede ser una buena tecnología para desplegar sistemas de Iot. También se tiene en cuenta que la utilización de una Raspberry 3 no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente pero si que puede validar todas las funciones listadas anteriormente y servir como preámbulo para la utilización en el resto de despliegues.  
 
-\section{Cómo funciona Docker?}
+\section{¿Cómo funciona Docker?}
 
 En este punto se explicara brevemente aspectos de la arquitectura, funcionamiento y puesta en marcha de Docker.  
 
@@ -147,7 +147,7 @@ El cliente podría hacer los comandos básicos de docker:
 \end{center}
 \end{figure}
 
-\subsection{Creacion de Imagenes}
+\subsection{Creación de Imágenes}
 
 Como se comentó en el punto anterior las imágenes de docker son las plantillas para poder levantar los contenedores, por eso la importancia de saber crear imágenes y personalizarlas ya que solo permiten lectura y los cambios que hagamos en los contenedores no se verán reflejados en estas.
 
@@ -195,15 +195,53 @@ La segunda manera de crear y personalizar imágenes es mediante un \texttt{Docke
 
 El comando \texttt{docker build} comunica al daemon de docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen. Este proceso se va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una cache que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo y no compilarlo todo de nuevo. 
 
+\begin{verbatim}
+FROM docker/whalesay:latest
+RUN apt-get -y update && apt-get install -y fortunes
+CMD echo "Proyecto CoIoTe" | cowsay
+\end{verbatim}
+
+Aquí tenemos un ejemplo sencillo de DockerFile que nos servirá para explicar de una manera rápida como crearlos. 
+
+\texttt{FROM} indica la imágen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará de internet. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
+
+La instrucción \texttt{CMD} solo puede aparecer una vez en un DockerFile, si colocamos más de uno, solo el último tendrá efecto. El objetivo de esta instrucción es proveer valores por defecto a un contenedor. Estos valores pueden incluir un ejecutable u omitir un ejecutable que en dado caso se debe especificar un punto de entrada o entrypoint en las instrucciones. En nuestro caso pintaremos un texto que se le pasara a la aplicación cowsay.
+
+Existen muchas más instrucciones, alguna de estas serán explicadas más adelante cuando sea necesario su uso. 
+
+Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \texttt{-t} nos permite darle nombre a la imagen y el \texttt{ .} encontrar el DockerFile para ser compilado. Como se ve en la Figura \ref{Build:BuildDockerFile} descarga del repositorio la imagen ya que no la tenemos en local creará una imagen intermedia que nos proporciona la caché en caso de fallo, continuará con la siguiente orden creando una nueva imagen nueva borrando las anteriores hasta obtener la imagen definitiva. 
+ 
+\begin{figure}[htb]
 \begin{center}
-\texttt{Explicacioens de la imagen del dockerfile}
+\includegraphics[width=0.90\textwidth]{./setup/DockerBuildWale}
+\caption{Build del DockerFile}
+\label{Build:BuildDockerFile}
 \end{center}
+\end{figure}
+ 
+Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está creada correctamente (Figura \ref{Imag:ImageWhale}) y pasaremos a levantar el contenedor. Una vez levantado nos saldrá por pantalla el icono de docker “diciendo” la frase que le indicamos en el fichero. (Figura \ref{Run:RunWhale}) 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.90\textwidth]{./setup/DockerImagesWhale}
+\caption{Docker images}
+\label{Imag:ImageWhale}
+\end{center}
+\end{figure}
+\pagebreak
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.90\textwidth]{./setup/DockerRunWhale}
+\caption{Docker run docker-whale]}
+\label{Run:RunWhale}
+\end{center}
+\end{figure}
 
 \subsection{Docker Compose}
 
 Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez.
 Se creará un archivo docker-compose.yml donde se configurar todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con estas los contenedores especificados a la vez que arrancará la aplicación.
-\pagebreak
 
 Los comandos que se utilizarán serán similares a los utilizados en la creación de imágenes.
 
@@ -218,9 +256,10 @@ Permite ejecutar el servicio y se nos levante todos los contenedores.
 \end{center} 
 
 Detendrá el servicio y detener los contenedores. 
-\newline
+\pagebreak 
 
-Docker-compose también nos permite ejecutar solo partes del.yml para levantar solo algunos de los contenedores igual que detener solo algunos de ellos, pasándole por parámetro el nombre del contenedor. 
+Docker-compose también nos permite ejecutar solo partes del.yml para levantar solo algunos de los contenedores igual que detener solo algunos de ellos, pasándole por parámetro el nombre del contenedor.
+
 \begin{center}
 \begin{verbatim}
 version: '2'
