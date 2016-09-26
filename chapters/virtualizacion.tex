@@ -2,32 +2,31 @@
 
 \section{¿Qué es la virtualización?}
 
-La virtualización es la creación de una versión virtual basada en software de algo, en lugar de una física. Se puede aplicar a sistemas operativos, almacenamiento, servidores, aplicaciones, redes… y es una manera de reducir gastos, aumentar eficiencia y agilidad en las empresas.  
+La virtualización es la creación de una versión virtual (no física) de algo. Está basada en software, se puede aplicar a sistemas operativos, almacenamiento, servidores, aplicaciones, redes, etc. y es una manera de reducir gastos y aumentar eficiencia y agilidad en las empresas.
 
 \subsection{Tipos de virtualización}
 
 Estos son los 4 tipos de virtualización más habituales.
 \subsubsection{Virtualización de servidores}
 
-La virtualización en servidores ayuda a evitar ineficiencias ya que permite ejecutar varios sistemas operativos en una máquina física como máquinas virtuales, con acceso a los recursos de todos. 
-También permite generar un cluster de servidores en un único recurso para así mejorar mucho más la eficiencia y la reducción de costes. También permite el aumento de rendimiento de las aplicaciones, la disponibilidad al aumentar la velocidad en la carga de trabajo.
+La virtualización en servidores ayuda a evitar ineficiencias ya que permite ejecutar varios sistemas operativos en una máquina física con máquinas virtuales con acceso a los recursos de todos. También permite generar un clúster de servidores en un único recurso para así mejorar mucho más la eficiencia y la reducción de costes. También permite el aumento de rendimiento de las aplicaciones, la disponibilidad al aumentar la velocidad en la carga de trabajo.
 
 \subsubsection{Virtualización de escritorios}
 
-La implementación de escritorios virtualizados permite ofrecer a las sucursales o empleados externos… de forma rápida y sencilla un entorno de trabajo y una reducción de la inversión a la hora de gestionar cambios en estos. 
+La implementación de escritorios virtualizados permite ofrecer a las sucursales o empleados externos de forma rápida y sencilla un entorno de trabajo y una reducción de la inversión a la hora de gestionar cambios en éstos.
 
 \subsubsection{Virtualización de red}
 
-Se trata de reproducir una red completa física mediante software, para poder ejecutar los mismo servicios que una red convencional y dispositivos. Cuentan con las misma características y garantías que las redes físicas con las ventajas que nos ofrece la virtualización más la liberación del hardware.
+Se trata de reproducir una red física completa mediante software para poder ejecutar los mismos servicios que una red convencional y sus dispositivos. Cuentan con las mismas características y garantías que las redes físicas con las ventajas que nos ofrece la virtualización además de la liberación del hardware.
 
 \subsubsection{Almacenamiento definido por software}
 
-La virtualización del almacenamiento permite prescindir de  los discos de los servidores, los combina en depósitos de almacenamiento de alto rendimiento y los distribuye como software. Este nuevo modelo es permite aumentar la eficiencia en el guardado de datos.
+La virtualización del almacenamiento permite prescindir de los discos de los servidores. Los combina en depósitos de almacenamiento de alto rendimiento y los distribuye como software. Este nuevo modelo permite aumentar la eficiencia en el guardado de datos.
 \pagebreak  
 
 \subsection{Ventajas de la virtualización}
 
-Como se ha podido apreciar en los tipos de virtualización, esta conlleva una mejora considerable tanto en el rendimiento, agilidad, flexibilidad, escalabilidad… Como en una reducción de costes considerables tanto en tiempo como monetarios y una simplificación en la gestión de la infraestructura.
+Como se ha podido apreciar en los tipos de virtualización presentados anteriormente, ésta conlleva una mejora considerable tanto en el rendimiento, agilidad, flexibilidad, escalabilidad, etc. como en una reducción considerable de los costes económicos y de tiempo y una simplificación en la gestión de la infraestructura.
 
 \begin{itemize}
 \item Reduce los costes de capital y los gastos operativos.
@@ -40,14 +39,15 @@ Como se ha podido apreciar en los tipos de virtualización, esta conlleva una me
 
 \section{¿Qué es Docker?}
 
-Docker es un proyecto Open Source basado en contenedores de Linux, es básicamente un motor de contenedores que usa características del Kernel de Linux.
+Docker es un proyecto Open Source basado en contenedores de Linux. Es básicamente un motor de contenedores que usa características del Kernel de Linux.
 
 La idea detrás de Docker es crear contenedores ligeros y portables para las aplicaciones software que puedan ejecutarse en cualquier máquina con Docker instalado,
 independientemente del sistema operativo que la máquina tenga por debajo, facilitando así también los despliegues.
 
-De una manera más sencilla Docker los que nos proporciona es la opción de poder meter en pequeños contenedores todo aquello que nuestra aplicación necesite y poder desplegarla en cualquier maquina que tenga instalado Docker sin preocuparnos de nada más. 
+De una manera más sencilla, Docker proporciona la opción de introducir
+en pequeños contenedores todo aquello que nuestra aplicación necesite. Permite desplegarla en cualquier máquina que tenga Docker instalado, sin preocuparnos de nada más. 
 
-Se podría decir que son pequeñas “máquinas virtuales” pero muchos más ligeras ya que utilizan el sistema operativo de donde se ejecuta y el contenido relevante para ejecutar la aplicación está dentro de los contenedores.
+Se podría decir que Docker son pequeñas “máquinas virtuales” pero muchos más ligeras ya que utilizan el sistema operativo de donde se ejecuta y el contenido relevante para ejecutar la aplicación está dentro de los contenedores.
 \newline 
 
 Docker es:
@@ -75,9 +75,9 @@ Docker no es:
 
 \section{Máquinas Virtuales vs Docker}
 
-Las máquinas virtuales, incluyen toda la aplicación, los binarios y librerías necesarias, y todo un sistema operativo cosa que hace que que ocupen mucho espacio, el tiempo de ejecución sea lento, la necesidad de un Hipervisor para su utilización.
+Las máquinas virtuales incluyen toda la aplicación, los binarios y librerías necesarias y todo un sistema operativo. Esto implica que ocupen mucho espacio, que el tiempo de ejecución sea lento y la necesidad de un Hipervisor para su utilización.
 
-Por lo contrario Docker container incluyen la aplicación y todas sus dependencias pero comparten el núcleo con otros contenedores, funcionando como procesos aislados en el sistema de ficheros del sistema operativo. Docker container no están vinculados a ninguna infraestructura específica: se ejecutan en cualquier ordenador, en cualquier infraestructura, y en cualquier cloud.
+Por lo contrario, los Docker container incluyen la aplicación y todas sus dependencias pero comparten el núcleo con otros contenedores, funcionando como procesos aislados en el sistema de ficheros del sistema operativo. Los Docker container no están vinculados a ninguna infraestructura específica: se ejecutan en cualquier ordenador, en cualquier infraestructura y en cualquier cloud.
 
 \begin{figure}[htb]
 \begin{center}
@@ -87,61 +87,67 @@ Por lo contrario Docker container incluyen la aplicación y todas sus dependenci
 \end{center}
 \end{figure}
 
-En la imagen \ref{Vs:VrvsDocker} se puede ver las diferencias comentadas anteriormente, mientras la primera columna sería la virtualización de 2 aplicaciones se puede dectectar que está la capa intermedia del Hipervisor el cual nos permite ejecutar los sistemas operativos virtualizados, todos los binarios y librerías que requieren cada aplicación y finalmente la aplicación. 
-En la segunda columna tenemos la contenerización de 2 aplicaciones, podemos observar que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura donde se ejecuta, pero si son necesarios los binarios y las librerías.
-A simple vista se puede apreciar que si eliminamos el sistema operativo la infraestructura completa se hace más liviana y rápida de ejecutar.
+En la figura \ref{Vs:VrvsDocker} se aprecian las diferencias comentadas anteriormente. La primera columna corresponde a la virtualización de 2 aplicaciones mediante la capa
+intermedia del Hipervisor, el cual nos permite ejecutar los sistemas operativos virtualizados. Estos, a su vez, permiten ejecutar todos los binarios y librerías que requiere cada aplicación y, finalmente, la aplicación. La segunda columna corresponde a la contenerización de 2 aplicaciones mediante Docker Engine. Podemos observar
+que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura
+de donde son ejecutadas, pero sí son necesarios los binarios y las librerías. A simple vista se puede apreciar que, si eliminamos el sistema operativo, la infraestructura completa se hace más liviana y rápida de ejecutar.
 
 \section{¿Por qué Docker?}
 
-Por lo motivos listados en el apartados anteriores se decidió en utilizar Docker para realizar el despliegue de las aplicaciones, ya que se necesita de una tecnología la cual pueda ser almacenada en dispositivos con una memoria reducida en este caso docker la cumple. 
+Según lo listado en los apartados anteriores, se decidió utilizar Docker para realizar el despliegue de las aplicaciones por:
 
-Su rapidez a la hora de levantar el servicio, en el mundo de IoT el tiempo es un bien preciado y los sistemas se pueden apagar y encender constantemente para evitar gastos de energía innecesarios.
+Cumplir con la condición de tecnología que pueda ser almacenada en dispositivos con una memoria reducida.
 
-La facilidad para poder desplegar los servicios, con Docker desplegar servicios es muy sencillo solo requiere tenerlo instalado y ejecutar el contenedor para que el servicio esté activo.
+Su rapidez a la hora de levantar el servicio. En el mundo de IoT el tiempo es un bien
+preciado y los sistemas se pueden apagar y encender constantemente para evitar gastos de energía innecesarios.
 
-La sencillez a la hora de mantener el sistema, si hay que hacer actualizaciones o controles de una pequeña parte del servicio solo habria que cambiar o actualizar ese contenedor no todo el sistema. Esto es un gran ahorro en recursos y tiempo. 
+La facilidad para poder desplegar los servicios. Con Docker desplegar servicios es muy sencillo, solo requiere tenerlo instalado y ejecutar el contenedor para que el servicio esté activo.
 
-Por todo esto se piensa que Docker puede ser una buena tecnología para desplegar sistemas de Iot. También se tiene en cuenta que la utilización de una Raspberry 3 no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente pero si que puede validar todas las funciones listadas anteriormente y servir como preámbulo para la utilización en el resto de despliegues.  
+La sencillez a la hora de mantener el sistema. Si hay que hacer actualizaciones o controles de una pequeña parte del servicio solo habría que cambiar o actualizar ese contenedor y no todo el sistema. Esto es un gran ahorro en recursos y tiempo. 
+
+Por todos estos motivos se piensa que Docker puede ser una buena tecnología para desplegar sistemas de Iot. También hay que tener en cuenta que, aunque la Raspberry 3 no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente, sí que cumple con todas las funciones listadas anteriormente y, por lo tanto, puede servir como preámbulo para la utilización en el resto de despliegues.  
 
 \section{¿Cómo funciona Docker?}
 
-En este punto se explicara brevemente aspectos de la arquitectura, funcionamiento y puesta en marcha de Docker.  
+En este punto se explicarán brevemente aspectos de la arquitectura, funcionamiento y
+puesta en marcha de Docker.  
 
 \subsection{Arquitectura}
 
-Docker usa una arquitectura cliente-servidor. El cliente de Docker se comunica con el Daemon de Docker para crear, ejecutar y distribuir los contenedores. El cliente como el Daemon puede estar en el mismo sistema o poder conectarte remotamente.
-Como Docker usa el kernel de linux para su ejecución si el sistema operativo del sistema no es este se deberá usar una pequeña capa extra en la arquitectura la cual sería una VM (boot Docker) para poder correr docker en la máquina. 
+Docker usa una arquitectura cliente-servidor. El cliente de Docker se comunica con el
+Daemon de Docker para crear, ejecutar y distribuir los contenedores. Tanto el cliente como el Daemon pueden estar en el mismo sistema o pueden conectarse remotamente.
+Como Docker usa el kernel de Linux para su ejecución, si el sistema operativo del sistema no es éste, se deberá usar una pequeña capa extra en la arquitectura de tipo VM (boot Docker) para poder correr Docker en la máquina.
 
 \subsubsection{Cliente de Docker}
 
-Es la principal interfaz de usuario para docker, acepta los comandos del usuario y se comunica con el daemon de docker.
+Es la principal interfaz de usuario para Docker. Acepta los comandos del usuario y se
+comunica con el Daemon de Docker.
 
 \subsubsection{Imágenes de Docker (Docker Images)}
 
-Las imágenes de Docker son plantillas de solo lectura, que nos permitirá crear contenedores basados en su configuración.
+Las imágenes de Docker son plantillas de solo lectura, que nos permitirán crear contenedores basados en su configuración.
 
 \subsubsection{Registros de Docker (Docker Registries)}
 
-Los registros de Docker guardan las imágenes, estos son repos públicos o privados donde podemos subir o descargar imágenes. Sería similar a GitHub para imágenes de docker (Docker Hub).
+Los registros de Docker guardan las imágenes. Éstos son repos públicos o privados donde se pueden subir o descargar imágenes. Sería similar a GitHub para imágenes de docker (Docker Hub).
 
 \subsubsection{Contenedores de Docker (Docker Containers)}
 
-El contenedor de docker contiene todo lo necesario para ejecutar una aplicación. Cada contenedor se crea de una imagen de docker y es una plataforma aislada.
+El contenedor de Docker contiene todo lo necesario para ejecutar una aplicación. Cada contenedor se crea de una imagen de Docker y es una plataforma aislada.
 \newline
 
-En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo sería la arquitectura básica. 
+En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo sería la arquitectura básica. El cliente podría hacer los comandos básicos de docker:
 
-El cliente podría hacer los comandos básicos de docker:
+\texttt{Docker Build}: Hacer un build de un DockerFile y generar una imagen de Docker. En la figura está representado siguiendo las flechas rojas en las cuales podemos ver que el cliente se comunica con el Daemon y éste genera la imagen.
 
-\texttt{Docker Build}: Hace un build de un DockerFile y generar una imagen de docker, en la figura está representado siguiendo las flechas rojas en la cual podemos ver que el cliente se comunica con el Daemon y este genera la imagen. 
+\texttt{Docker Pull}: Permite descargar una imagen de los repositorios de Docker. En la imagen se puede observar siguiendo las flechas verdes e, igual que el comando anterior, se comunica el cliente con el Daemon para que éste proceda a hacer la descarga de la imagen del repositorio. 
 
-\texttt{Docker Pull}: El cual nos permite descargar una imagen de los repositorios de Docker, en la imagen se puede observar siguiendo las flechas verdes. Que igual que el comando anterior se comunica el cliente con el Daemon para que este proceda a hacer la descarga de la imagen del repositorio. 
-
-\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de esta. Si seguimos las flechas azules, veremos como nuevamente el cliente al ejecutar esa comanda se comunica con el Daemon este busca la imagen a la cual se le quiere hacer ejecutar y se levanta un contenedor con la configuración de la imagen.
+\texttt{Docker Run}:Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar y se levanta un contenedor con la configuración de la imagen.
+%\pagebreak 
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.90\textwidth]{./setup/Infraestructura}
+\includegraphics[width=0.69\textwidth]{./setup/Infraestructura}
 \caption{Infraestructura de Docker}
 \label{Inf:Infraestructura}
 \end{center}
@@ -149,15 +155,16 @@ El cliente podría hacer los comandos básicos de docker:
 
 \subsection{Creación de Imágenes}
 
-Como se comentó en el punto anterior las imágenes de docker son las plantillas para poder levantar los contenedores, por eso la importancia de saber crear imágenes y personalizarlas ya que solo permiten lectura y los cambios que hagamos en los contenedores no se verán reflejados en estas.
+Como se comenta en el punto anterior, las imágenes de Docker son las plantillas para
+poder levantar los contenedores. Por eso la importancia de saber crear imágenes y personalizarlas ya que sólo permiten lectura y los cambios que hagamos en los contenedores no se verán reflejados en éstas.
 
-La manera más sencilla de crear una imagen es descargarla del Docker Hub con el comando explicado con anterioridad:
+La manera más sencilla de crear una imagen es descargarla del Docker Hub con el comando explicado anteriormente:
 
 \begin{center}
 \texttt{docker pull [OPTIONS] NAME[:TAG|@DIGEST]}
 \end{center}
 
-Este comando nos permite descargar una imagen en una versión concreta o tag dependiendo de nuestras necesidades, por defecto si no se pone nada descargara la ultima. 
+Este comando nos permite descargar una imagen en una versión concreta o tag dependiendo de nuestras necesidades. Por defecto, si no se pone nada, descargará la última. 
 
 \begin{figure}[htb]
 \begin{center}
@@ -168,9 +175,9 @@ Este comando nos permite descargar una imagen en una versión concreta o tag dep
 \end{center}
 \end{figure}
 
-En las figuras \ref{Com1:ComandosDocker1} podemos apreciar como se descarga la última versión de la imagen de mongo y nos genera la imagen. 
+En las figuras \ref{Com1:ComandosDocker1} podemos apreciar como se descarga la última versión de la imagen de MongoDB y nos genera la imagen. 
 
-Una vez tenemos la imagen se pasara a levantar el contenedor para poder ejecutar el servicio, con otro de los comandos explicados. 
+Una vez obtenida la imagen se pasará a levantar el contenedor para poder ejecutar el servicio con otro de los comandos explicados. 
 
 \begin{center}
 \texttt{docker run [OPTIONS] IMAGE [COMMAND] [ARG...]}
@@ -188,12 +195,13 @@ Una vez tenemos la imagen se pasara a levantar el contenedor para poder ejecutar
 \end{figure}
 
 
-En las figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que nos permite ver que contenedores están levantados,no hay ninguno (a) y al inicializar con el comando \texttt{docker run mongo} nos levanta el servicio (b) y esta vez si aparece el contenedor (c).
+En las figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que
+permite ver qué contenedores están levantados, no hay ninguno (a) y cómo al inicializar con el comando  \texttt{docker run mongo} evanta el servicio (b) y esta vez sí aparece el contenedor (c).
 \newline
 
-La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentra todos los comandos que se deben ejecutar para generar nuestra imagen.
+La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentran los comandos que se deben ejecutar para generar nuestra imagen.
 
-El comando \texttt{docker build} comunica al daemon de docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen. Este proceso se va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una cache que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo y no compilarlo todo de nuevo. 
+El comando \texttt{docker build} comunica al Daemon de Docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen.Este proceso va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una caché que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo. 
 
 \begin{verbatim}
 FROM docker/whalesay:latest
@@ -232,7 +240,7 @@ Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.90\textwidth]{./setup/DockerRunWhale}
+\includegraphics[width=0.70\textwidth]{./setup/DockerRunWhale}
 \caption{Docker run docker-whale]}
 \label{Run:RunWhale}
 \end{center}
@@ -240,8 +248,7 @@ Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está
 
 \subsection{Docker Compose}
 
-Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez.
-Se creará un archivo docker-compose.yml donde se configurar todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con estas los contenedores especificados a la vez que arrancará la aplicación.
+Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez. Se creará un archivo docker-compose.yml donde se configurarán todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con éstas los contenedores especificados a la vez que arrancará la aplicación.
 
 Los comandos que se utilizarán serán similares a los utilizados en la creación de imágenes.
 
@@ -249,16 +256,16 @@ Los comandos que se utilizarán serán similares a los utilizados en la creació
 \texttt{docker-compose up}
 \end{center} 
 
-Permite ejecutar el servicio y se nos levante todos los contenedores.
+Permite ejecutar el servicio y levantar todos los contenedores.
 
 \begin{center}
 \texttt{docker-compose stop}
 \end{center} 
 
-Detendrá el servicio y detener los contenedores. 
+Detiene el servicio y detiene los contenedores. 
 \pagebreak 
 
-Docker-compose también nos permite ejecutar solo partes del.yml para levantar solo algunos de los contenedores igual que detener solo algunos de ellos, pasándole por parámetro el nombre del contenedor.
+Docker-compose también permite ejecutar solo partes del.yml para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
 
 \begin{center}
 \begin{verbatim}
@@ -281,8 +288,39 @@ services:
    - NODE_ENV=docker
   ports:
    - "40000:40000"
-volumes:
+volumes:\newline
  mongo-data:
    driver: local
 \end{verbatim}
-\end{center} 
+\end{center}
+
+Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la aplicación aaaida en la Raspberry. 
+La importancia en los espacios es imprescindible para que este funcione ya que da la jerarquía adecuada para que docker-compose lo entienda.
+Ahora pasaremos a explicar brevemente los argumentos que podemos encontrar en el. 
+En primer lugar tenemos los servicios, en nuestro caso son 2, una base de datos MongoDB y aaaida.
+
+Dentro de mongo tendremos los siguientes: 
+
+\texttt{container name}: Le da un nombre al contenedor para no tener que referirse a él por la id o el nombre aleatorio que proporciona Docker.
+
+\texttt{restart}: Nos permite que en caso de fallida o reinicio del sistema este contenedor vuelva a ejecutarse.
+
+\texttt{image}: Para poder especificar la imagen que utilizaremos para este servicio.
+
+\texttt{volumes}: En caso de mongo necesita un directorio donde almacenar los datos, esto específica donde se creará el volumen de datos.
+
+\texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar esta comanda ya que activará el journaling, que por defecto viene desactivado.
+\pagebreak
+
+En el siguiente servicio, el de aaaida, a parte de disponer los mismo argumentos basicos como serian \texttt{container name}, \texttt{restart} o \texttt{image} encontraremos alguno más como:
+
+\texttt{links}: Define el enlace entre contenedores.
+
+\texttt{environment}: Para poder poder pasar variables.
+
+\texttt{ports}: Define el mapeo de puertos.
+
+Para finalizar el archivo se encuentra los \texttt{volumes} donde generamos el volumen que hemos especificado dentro del servicio de mongo.  
+
+
+
