@@ -1,0 +1,31 @@
+\chapter{Raspberry Pi}
+
+\section{¿Por qué Raspberry Pi?}
+
+La utilización de una Raspberry Pi en este proyecto son claras y comentadas con anterioridad. 
+Es un dispositivo de un tamaño muy reducido y portátil, que nos facilita mucho el poder llevarla a cualquier lugar sin dificultades y poder ofrecer un servicio en cualquier lugar.
+Tiene unas prestaciones más que aceptables para un dispositivo de ese tamaño, conexiones inalámbricas como serian Wifi y Bluetooth integrados cosa impredecible para las comunicaciones con los sensores. Todo a un precio muy atractivo el cual permite su compra.  
+
+Algunas de las especificaciones mas importantes son las siguientes:
+\begin{itemize}
+\item 1.2GHz 64-bit quad-core ARMv8 CPU
+\item 802.11n Wireless LAN
+\item Bluetooth 4.1 y Bluetooth Low Energy (BLE)
+\item 1GB RAM
+\item Ethernet port
+\item Micro SD card slot 
+\end{itemize}
+
+\section{Virtualización de la Raspberry}
+
+Al inicio del proyecto no se disponía de una Raspberry para poder realizar las pruebas y se decidió emular la mediante qemu. 
+Qemu es una aplicación que nos permite emular mediante máquinas virtuales gran parte de los sistemas operativos. 
+Lo cual es realmente sencillo emular una imagen de Raspbian si no fuera por un detalle, como se comenta en el apartado ¿Qué es Docker? Docker necesita un sistema x64 o Linux kernel 3.8+ y Raspberry ejecuta un sistema ARM lo que conlleva que Docker no sea compatible a primera instancia con la Raspberry. 
+La solución para este gran problema es la utilización de Hypriot, una imagen de Raspbian modificada con Docker instalado. 
+La instalación de esta imagen  requiere hacer unos retoques ya que no es del todo compatible el kernel de qemu con el de la imagen de Hypriot. Cosa que aun que permite emular perfectamente la imagen con Docker, no nos permite el uso correcto. Por lo tanto se decidió apartar por completo la posibilidad de poder emular una Raspberry con Docker instalado ya que las incompatibilidades del kernel no lo permitían.
+
+En el apéndice se podrá ver los pasos a seguir para la instalación y emulación de la imagen. 
+
+\section{Raspberry y Docker}
+
+Después de descartar completamente la opción de emular la imagen de la Raspberry se decidió probar en la Raspberry que disponía la empresa la imagen corria perfectamente. Y si, la imagen iba perfectamente y ejecutaba Docker sin ningún problema. Ahora el problema era la Raspberry, era el primer modelo el cual era viejo y no disponía de módulos para conexiones inalámbricas integrados por lo que se decidió aprovechando el lanzamiento de la nueva Raspberry 3 comprarla.

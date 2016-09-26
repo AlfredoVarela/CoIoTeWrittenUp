@@ -92,7 +92,7 @@ intermedia del Hipervisor, el cual nos permite ejecutar los sistemas operativos 
 que no hace falta un hipervisor ya que utilizan el sistema operativo de la infraestructura
 de donde son ejecutadas, pero sí son necesarios los binarios y las librerías. A simple vista se puede apreciar que, si eliminamos el sistema operativo, la infraestructura completa se hace más liviana y rápida de ejecutar.
 
-\section{¿Por qué Docker?}
+\section{¿Por qué Docker?}\label{PqD:PQDocker}
 
 Según lo listado en los apartados anteriores, se decidió utilizar Docker para realizar el despliegue de las aplicaciones por:
 
@@ -142,7 +142,7 @@ En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo ser�
 
 \texttt{Docker Pull}: Permite descargar una imagen de los repositorios de Docker. En la imagen se puede observar siguiendo las flechas verdes e, igual que el comando anterior, se comunica el cliente con el Daemon para que éste proceda a hacer la descarga de la imagen del repositorio. 
 
-\texttt{Docker Run}:Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar y se levanta un contenedor con la configuración de la imagen.
+\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar y se levanta un contenedor con la configuración de la imagen.
 %\pagebreak 
 
 \begin{figure}[htb]
@@ -322,5 +322,12 @@ En el siguiente servicio, el de aaaida, a parte de disponer los mismo argumentos
 
 Para finalizar el archivo se encuentra los \texttt{volumes} donde generamos el volumen que hemos especificado dentro del servicio de mongo.  
 
+En puntos posteriores se explicará más detenidamente el funcionamiento y la puesta en marcha del Docker Compose ya que el archivo utilizado para el ejemplo es el utilizado en la Raspberry.
 
+\section{Conclusiones}
 
+Como se puede observar, al virtualizar los recursos disponibles obtenemos un aumento en rendimiento y reducción de los costo. 
+
+Docker nos permite el despliegue de aplicaciones de una manera sencilla y en cualquier plataforma que lo soporte. 
+
+Las diferencia más significativa entre las máquinas virtuales y Docker sería el uso del hipervisor y la necesidad de un sistema operativo para las máquinas virtuales. Cosa que en Docker no es necesario, esto hace que las aplicaciones desplegadas de esta manera tengan una reducción de tiempo al ejecutarse y en de tamaño.  
