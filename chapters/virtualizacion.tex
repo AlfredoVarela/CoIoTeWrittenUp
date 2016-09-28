@@ -125,11 +125,11 @@ comunica con el Daemon de Docker.
 
 \subsubsection{Imágenes de Docker (Docker Images)}
 
-Las imágenes de Docker son plantillas de solo lectura, que nos permitirán crear contenedores basados en su configuración.
+Las imágenes de Docker son plantillas de sólo lectura, que nos permitirán crear contenedores basados en su configuración.
 
 \subsubsection{Registros de Docker (Docker Registries)}
 
-Los registros de Docker guardan las imágenes. Éstos son repos públicos o privados donde se pueden subir o descargar imágenes. Sería similar a GitHub para imágenes de docker (Docker Hub).
+Los registros de Docker guardan las imágenes. Éstos son repositorios públicos o privados donde se pueden subir o descargar imágenes. Sería similar a GitHub para imágenes de Docker (Docker Hub).
 
 \subsubsection{Contenedores de Docker (Docker Containers)}
 
@@ -140,9 +140,9 @@ En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo ser�
 
 \texttt{Docker Build}: Hacer un build de un DockerFile y generar una imagen de Docker. En la figura está representado siguiendo las flechas rojas en las cuales podemos ver que el cliente se comunica con el Daemon y éste genera la imagen.
 
-\texttt{Docker Pull}: Permite descargar una imagen de los repositorios de Docker. En la imagen se puede observar siguiendo las flechas verdes e, igual que el comando anterior, se comunica el cliente con el Daemon para que éste proceda a hacer la descarga de la imagen del repositorio. 
+\texttt{Docker Pull}: Permite descargar una imagen de los repositorios de Docker. En la imagen se puede observar siguiendo las flechas verdes e, igual que el comando anterior, se comunica el cliente con el Daemon para que éste proceda a hacer la descarga de la imagen de mongoDB del repositorio. 
 
-\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar y se levanta un contenedor con la configuración de la imagen.
+\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar, en estecaso la imagen de Ubuntu y se levanta un contenedor con la configuración de la imagen.
 %\pagebreak 
 
 \begin{figure}[htb]
