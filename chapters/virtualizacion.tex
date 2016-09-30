@@ -205,7 +205,6 @@ El comando \texttt{docker build} comunica al Daemon de Docker que debe de leer e
 
 \begin{verbatim}
 FROM docker/whalesay:latest
-RUN apt-get -y update && apt-get install -y fortunes
 CMD echo "Proyecto CoIoTe" | cowsay
 \end{verbatim}
 
@@ -263,7 +262,7 @@ Permite ejecutar el servicio y levantar todos los contenedores.
 \end{center} 
 
 Detiene el servicio y detiene los contenedores. 
-\pagebreak 
+%\pagebreak 
 
 Docker-compose también permite ejecutar solo partes del.yml para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
 
@@ -278,6 +277,8 @@ services:
   volumes:
    - mongo-data:/data/db
   command: /usr/bin/mongod --smallfiles --journal
+  \end{verbatim}
+\begin{verbatim}
  aaaida:
   container_name: aaaidaArm
   restart: always
@@ -310,7 +311,6 @@ Dentro de mongo tendremos los siguientes:
 \texttt{volumes}: En caso de mongo necesita un directorio donde almacenar los datos, esto específica donde se creará el volumen de datos.
 
 \texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar esta comanda ya que activará el journaling, que por defecto viene desactivado.
-\pagebreak
 
 En el siguiente servicio, el de aaaida, a parte de disponer los mismo argumentos basicos como serian \texttt{container name}, \texttt{restart} o \texttt{image} encontraremos alguno más como:
 
