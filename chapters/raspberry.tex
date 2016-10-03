@@ -2,9 +2,7 @@
 
 \section{¿Por qué Raspberry Pi?}
 
-La utilización de una Raspberry Pi en este proyecto son claras y comentadas con anterioridad. 
-Es un dispositivo de un tamaño muy reducido y portátil, que nos facilita mucho el poder llevarla a cualquier lugar sin dificultades y poder ofrecer un servicio en cualquier lugar.
-Tiene unas prestaciones más que aceptables para un dispositivo de ese tamaño, conexiones inalámbricas como serian Wifi y Bluetooth integrados cosa impredecible para las comunicaciones con los sensores. Todo a un precio muy atractivo el cual permite su compra.  
+Los motivos por los cuales se ha utilizado una Raspberry Pi en este proyecto son claros y han sido comentados con anterioridad. Es un dispositivo portátil de un tamaño muy reducido que nos facilita mucho el poder llevarlo y poder ofrecer un servicio en cualquier lugar sin dificultades. Tiene unas prestaciones más que aceptables para un dispositivo de ese tamaño como conexiones inalámbricas de Wifi y Bluetooth integrados, cosa imprescindible para las comunicaciones con los sensores. Todo a un precio muy atractivo que lo hace asequible.  
 
 Algunas de las especificaciones mas importantes de las Raspberry Pi 3 son las siguientes:
 \begin{itemize}
@@ -20,7 +18,6 @@ Algunas de las especificaciones mas importantes de las Raspberry Pi 3 son las si
 \begin{center}
 \includegraphics[width=0.65\textwidth]{./setup/raspi}
 \caption{Raspberry Pi 3}
-\label{Inf:Infraestructura}
 \end{center}
 \end{figure}
 
@@ -60,7 +57,6 @@ $ sudo systemctl enable docker.service
 \item Pondrá en marcha el Daemon de Docker.  
 \end{itemize}
 
-Una vez tenemos la imagen preparada podremos hacer una copia binaria en una SD y ya estará lista para poder ser arrancada desde una Raspberry. 
 
 \subsection{Creación de las imágenes de Docker}
 
@@ -126,4 +122,88 @@ Si seguimos se ve que crea un directorio con el nombre de \texttt{aaaida} y hace
  
 Después Ejecutará \texttt{["/entrypoint"]} que al escribirlo en formato JSON la instrucción \texttt{CMD} ejecuta el contenido sin shell. El contenido de este script especifica los puertos, el host... de la aplicación. Se podrá ver su contenido en el apéndice.
  
-Para terminar con las 2 últimas instrucciones, que son \texttt{EXPOSE} y \texttt{COPY}, la cual la primera indica los puertos que el contenedor tendrá activos y por los cuales escuchara. El segundo hará una copia desde el punto raíz donde se ejecute el Dockerfile en el directorio creado anteriormente de \texttt{aaaida}. 
+Para terminar con las 2 últimas instrucciones, que son \texttt{EXPOSE} y \texttt{COPY}, la cual la primera indica los puertos que el contenedor tendrá activos y por los cuales escuchara. El segundo hará una copia desde el punto raíz donde se ejecute el Dockerfile en el directorio creado anteriormente de \texttt{aaaida}.
+
+\subsection{Despliegue de la aplicación} 
+
+Para realizar el despliegue de Aaaida con las dos imágenes que se han creado en el apartado anterior sería suficiente, tan solo tendríamos que arrancar las imágenes para crear los contenedores. 
+Primero se haría un \texttt{docker run} sobre la imagen de MongoDb y acto seguido igual con la imagen de Aaaida, pero con una pequeña diferencia habría que linkear el contenedor de mongo para que la aplicación pueda encontrar la base de datos necesaria para funcionar.
+\pagebreak 
+
+El comando utilizado para levantar el contenedor sería el siguiente:
+
+\begin{center}
+\begin{verbatim}
+docker run --link=cc1d12ed96ee:mongo --name= aaaidaArm -e NODE_ENV=docker 
+alteraid/aaaida datastore-arm
+\end{verbatim}
+\end{center}
+
+En el comando se linkea el \texttt{CONTAINER ID} que sería como el número de serie del contenedor de Docker (se puede obtener usando el comando \texttt{docker ps}), también le dará un nombre al contenedor y por último el -e que permite añadir variables de entorno.
+\newline 
+
+Pero levantar los contenedores utilizando solo Docker implica estar haciendo un \texttt{run} o \texttt{start} cada vez que el servicio caiga por culpa de un apagón o fallos. Se decide instalar Docker Compose para poder orquestar las dos imágenes y añadir todas las necesidades y relaciones que necesiten. Esto permitirá tener el servicio automatizado en un fichero que tan solo habrá que arrancar una vez y en caso de fallo, el solo intentara arrancar de nuevo el servicio. El fichero utilizado se puede ver en el punto 2.5.3. Docker Compose donde también está explicado. 
+
+Si se levanta el proceso mediante el comando \texttt{docker-compose up} se puede ver como tanto el contenedor de \texttt{aaaida} como el de \texttt{mongo} se ejecutan y tenemos la aplicación corriendo perfectamente.
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./setup/dockerComposeUp}
+\caption{Docker-compose up}
+\label{ComUp:composeUp}
+\end{center}
+\end{figure} 
+\pagebreak
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./setup/dockerpsVolumen}
+\caption{Listado de contenedores y volúmenes}
+\label{psVl:psVolumen}
+\end{center}
+\end{figure} 
+
+En las dos figuras anteriores (\ref{ComUp:composeUp} y \ref{psVl:psVolumen}) se puede ver cómo al iniciar el Docker Compose se levantan todos los contenedores y se crean los volúmenes de datos necesarios para arrancar la Aaaida, la cual si abrimos un navegador podremos acceder. (Figura \ref{webLog:LoggeoAaaida}) 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./setup/AaaidaDatastore}
+\caption{Acceso a Aaaida}
+\label{webLog:LoggeoAaaida}
+\end{center}
+\end{figure} 
+
+Con un pequeño problema, la base de datos está vacía. Al no tener datos no hay usuarios por lo tanto  no se podrá acceder a la plataforma de Aaaida, la solución es cargar un dump de la base de datos en el contenedor de \texttt{mongo} para que este encuentre los datos y poder acceder a la plataforma.  Para hacer el volcado de datos es necesario saber la IP del contenedor ya que será la manera de decir donde queremos hacer el restore de la base de datos. Para poder extraer información de los contenedores se utiliza el comando \texttt{docker inspect}. En la figura siguiente se verá la ejecución del comando y de donde obtendremos la IP de nuestro contenedor de mongo.
+\pagebreak
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./setup/dockerinspect}
+\caption{Docker inspect}
+\label{insp:dockerInspect}
+\end{center}
+\end{figure} 
+
+Una vez se obtiene la IP del contenedor, \texttt{IPAddress: 172.18.0.3}, se ejecutará la siguiente comando para llevar a cabo el volcado de datos:
+
+\begin{center}
+\texttt{mongorestore dump/ -h 172.18.0.3}
+\end{center}
+
+Una vez disponemos de todas las piezas lista, se puede dar por concluido el proceso de despliegue de Aaaida en una Raspberry Pi utilizando Docker. 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.70\textwidth]{./setup/aaaidaCoIoTe}
+\caption{Interfaz de Aaaida}
+\label{aidaCoI:aaaidaCoiote}
+\end{center}
+\end{figure} 
+ 
+ \subsection{Conclusiones} 
+ 
+En este capítulo se puede ver que la Raspberry es el dispositivo para IoT más popular en el mercado, tanto por su prestaciones como por su reducido precio.
+ 
+De que no es posible virtualizar la Raspberry mediante Qemu y utilizar Docker ya que el kernel no es compatible. 
+
+Y por último, aunque Docker no sea compatible para un sistema ARM gracias a unos pequeños cambios en la imagen se puede ejecutar, por lo tanto se pudo desplegar toda la infraestructura en la Raspberry y Aaaida funciona perfectamente. 

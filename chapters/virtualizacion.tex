@@ -9,7 +9,7 @@ La virtualización es la creación de una versión virtual (no física) de algo.
 Estos son los 4 tipos de virtualización más habituales.
 \subsubsection{Virtualización de servidores}
 
-La virtualización en servidores ayuda a evitar ineficiencias ya que permite ejecutar varios sistemas operativos en una máquina física con máquinas virtuales con acceso a los recursos de todos. También permite generar un clúster de servidores en un único recurso para así mejorar mucho más la eficiencia y la reducción de costes. También permite el aumento de rendimiento de las aplicaciones, la disponibilidad al aumentar la velocidad en la carga de trabajo.
+La virtualización de servidores ayuda a evitar ineficiencias ya que permite ejecutar varios sistemas operativos en una máquina física con máquinas virtuales con acceso a los recursos de todos. También permite generar un clúster de servidores en un único recurso para así mejorar mucho más la eficiencia y la reducción de costes. También permite el aumento de rendimiento de las aplicaciones y la disponibilidad al aumentar la velocidad en la carga de trabajo.
 
 \subsubsection{Virtualización de escritorios}
 
@@ -105,7 +105,7 @@ La facilidad para poder desplegar los servicios. Con Docker desplegar servicios 
 
 La sencillez a la hora de mantener el sistema. Si hay que hacer actualizaciones o controles de una pequeña parte del servicio solo habría que cambiar o actualizar ese contenedor y no todo el sistema. Esto es un gran ahorro en recursos y tiempo. 
 
-Por todos estos motivos se piensa que Docker puede ser una buena tecnología para desplegar sistemas de Iot. También hay que tener en cuenta que, aunque la Raspberry 3 no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente, sí que cumple con todas las funciones listadas anteriormente y, por lo tanto, puede servir como preámbulo para la utilización en el resto de despliegues.  
+Por todos estos motivos se piensa que Docker puede ser una buena tecnología para desplegar sistemas de IoT. También hay que tener en cuenta que, aunque la Raspberry Pi no es un aparato con unas capacidades limitadas como podría ser un sensor utilizado normalmente, sí que cumple con todas las funciones listadas anteriormente y, por lo tanto, puede servir como preámbulo para la utilización en el resto de despliegues.  
 
 \section{¿Cómo funciona Docker?}
 
@@ -116,7 +116,7 @@ puesta en marcha de Docker.
 
 Docker usa una arquitectura cliente-servidor. El cliente de Docker se comunica con el
 Daemon de Docker para crear, ejecutar y distribuir los contenedores. Tanto el cliente como el Daemon pueden estar en el mismo sistema o pueden conectarse remotamente.
-Como Docker usa el kernel de Linux para su ejecución, si el sistema operativo del sistema no es éste, se deberá usar una pequeña capa extra en la arquitectura de tipo VM (boot Docker) para poder correr Docker en la máquina.
+Como Docker usa el kernel de Linux para su ejecución, si el sistema operativo del sistema no es éste, se deberá usar una pequeña capa extra en la arquitectura de tipo VM (boot Docker) para poder correr Docker en la máquina.\newline
 
 \subsubsection{Cliente de Docker}
 
@@ -142,7 +142,7 @@ En la figura \ref{Inf:Infraestructura} podemos apreciar gráficamente cómo ser�
 
 \texttt{Docker Pull}: Permite descargar una imagen de los repositorios de Docker. En la imagen se puede observar siguiendo las flechas verdes e, igual que el comando anterior, se comunica el cliente con el Daemon para que éste proceda a hacer la descarga de la imagen de mongoDB del repositorio. 
 
-\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar, en estecaso la imagen de Ubuntu y se levanta un contenedor con la configuración de la imagen.
+\texttt{Docker Run}: Ejecuta una imagen para generar un contendor de ésta. Siguiendo las flechas azules, veremos cómo nuevamente el cliente, al ejecutar esa comanda, se comunica con el Daemon. Este busca la imagen que se quiere ejecutar, en este caso la imagen de Ubuntu y se levanta un contenedor con la configuración de la imagen.
 %\pagebreak 
 
 \begin{figure}[htb]
@@ -197,11 +197,10 @@ Una vez obtenida la imagen se pasará a levantar el contenedor para poder ejecut
 
 En las figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que
 permite ver qué contenedores están levantados, no hay ninguno (a) y cómo al inicializar con el comando  \texttt{docker run mongo} evanta el servicio (b) y esta vez sí aparece el contenedor (c).
-\newline
 
 La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentran los comandos que se deben ejecutar para generar nuestra imagen.
 
-El comando \texttt{docker build} comunica al Daemon de Docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen.Este proceso va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una caché que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo. 
+El comando \texttt{docker build} comunica al Daemon de Docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen. Este proceso va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una caché que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo. 
 
 \begin{verbatim}
 FROM docker/whalesay:latest
@@ -212,11 +211,11 @@ Aquí tenemos un ejemplo sencillo de DockerFile que nos servirá para explicar d
 
 \texttt{FROM} indica la imágen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará de internet. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
 
-La instrucción \texttt{CMD} solo puede aparecer una vez en un DockerFile, si colocamos más de uno, solo el último tendrá efecto. El objetivo de esta instrucción es proveer valores por defecto a un contenedor. Estos valores pueden incluir un ejecutable u omitir un ejecutable que en dado caso se debe especificar un punto de entrada o entrypoint en las instrucciones. En nuestro caso pintaremos un texto que se le pasara a la aplicación cowsay.
+La instrucción \texttt{CMD} solo puede aparecer una vez en un DockerFile, si colocamos más de uno, solo el último tendrá efecto. El objetivo de esta instrucción es proveer valores por defecto a un contenedor. Estos valores pueden incluir un ejecutable u omitir un ejecutable que en dado caso se debe especificar un punto de entrada o entrypoint en las instrucciones. En nuestro caso pintaremos un texto que se le pasara a la aplicación Cowsay.
 
 Existen muchas más instrucciones, alguna de estas serán explicadas más adelante cuando sea necesario su uso. 
 
-Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \texttt{-t} nos permite darle nombre a la imagen y el \texttt{ .} encontrar el DockerFile para ser compilado. Como se ve en la Figura \ref{Build:BuildDockerFile} descarga del repositorio la imagen ya que no la tenemos en local creará una imagen intermedia que nos proporciona la caché en caso de fallo, continuará con la siguiente orden creando una nueva imagen nueva borrando las anteriores hasta obtener la imagen definitiva. 
+Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \texttt{-t} nos permite darle nombre a la imagen y el \texttt{ .} encontrar el DockerFile para ser compilado, tal y como se ve en la Figura \ref{Build:BuildDockerFile}, descarga del repositorio la imagen ya que no la tenemos en local. Creará una imagen intermedia que nos proporciona la caché en caso de fallo, continuará con la siguiente orden creando una nueva imagen y borrando las anteriores hasta obtener la imagen definitiva. 
  
 \begin{figure}[htb]
 \begin{center}
@@ -226,7 +225,7 @@ Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \t
 \end{center}
 \end{figure}
  
-Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está creada correctamente (Figura \ref{Imag:ImageWhale}) y pasaremos a levantar el contenedor. Una vez levantado nos saldrá por pantalla el icono de docker “diciendo” la frase que le indicamos en el fichero. (Figura \ref{Run:RunWhale}) 
+Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está creada correctamente (Figura \ref{Imag:ImageWhale}) y pasará a levantar el contenedor. Una vez levantado nos saldrá por pantalla el icono de docker “diciendo” la frase que le indicamos en el fichero. (Figura \ref{Run:RunWhale}) 
 
 \begin{figure}[htb]
 \begin{center}
@@ -240,7 +239,7 @@ Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.70\textwidth]{./setup/DockerRunWhale}
-\caption{Docker run docker-whale]}
+\caption{Docker run docker-whale}
 \label{Run:RunWhale}
 \end{center}
 \end{figure}
@@ -251,17 +250,17 @@ Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utili
 
 Los comandos que se utilizarán serán similares a los utilizados en la creación de imágenes.
 
+Para ejecutar el servicio y levantar todos los contenedores.
+
 \begin{center}
 \texttt{docker-compose up}
 \end{center} 
 
-Permite ejecutar el servicio y levantar todos los contenedores.
+Para detener el servicio y detener los contenedores.
 
 \begin{center}
 \texttt{docker-compose stop}
 \end{center} 
-
-Detiene el servicio y detiene los contenedores. 
 %\pagebreak 
 
 Docker-compose también permite ejecutar solo partes del.yml para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
@@ -295,12 +294,12 @@ volumes:\newline
 \end{verbatim}
 \end{center}
 
-Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la aplicación aaaida en la Raspberry. 
-La importancia en los espacios es imprescindible para que este funcione ya que da la jerarquía adecuada para que docker-compose lo entienda.
+Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la aplicación Aaaida en la Raspberry Pi. 
+La importancia en los espacios es imprescindible para que éste funcione ya que da la jerarquía adecuada para que docker-compose lo entienda.
 Ahora pasaremos a explicar brevemente los argumentos que podemos encontrar en el. 
-En primer lugar tenemos los servicios, en nuestro caso son 2, una base de datos MongoDB y aaaida.
+En primer lugar tenemos los servicios, en nuestro caso son 2, una base de datos MongoDB y Aaaida.
 
-Dentro de mongo tendremos los siguientes: 
+Dentro de \texttt{mongo} tendremos los siguientes: 
 
 \texttt{container name}: Le da un nombre al contenedor para no tener que referirse a él por la id o el nombre aleatorio que proporciona Docker.
 
@@ -308,11 +307,11 @@ Dentro de mongo tendremos los siguientes:
 
 \texttt{image}: Para poder especificar la imagen que utilizaremos para este servicio.
 
-\texttt{volumes}: En caso de mongo necesita un directorio donde almacenar los datos, esto específica donde se creará el volumen de datos.
+\texttt{volumes}: En caso de Mongo necesita un directorio donde almacenar los datos. Ésto especıfica donde se creará el volumen de datos.
 
-\texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar esta comanda ya que activará el journaling, que por defecto viene desactivado.
+\texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar este comando ya que activará el Journaling, que por defecto viene desactivado.
 
-En el siguiente servicio, el de aaaida, a parte de disponer los mismo argumentos basicos como serian \texttt{container name}, \texttt{restart} o \texttt{image} encontraremos alguno más como:
+En el siguiente servicio, el de \texttt{aaaida}, a parte de disponer los mismos argumentos basicos como serian \texttt{container name}, \texttt{restart} o \texttt{image}, encontraremos alguno más como:
 
 \texttt{links}: Define el enlace entre contenedores.
 
@@ -320,14 +319,14 @@ En el siguiente servicio, el de aaaida, a parte de disponer los mismo argumentos
 
 \texttt{ports}: Define el mapeo de puertos.
 
-Para finalizar el archivo se encuentra los \texttt{volumes} donde generamos el volumen que hemos especificado dentro del servicio de mongo.  
+Para finalizar el archivo se encuentra los \texttt{volumes} donde se genera el volumen que hemos especificado dentro del servicio de \texttt{mongo}.  
 
 En puntos posteriores se explicará más detenidamente el funcionamiento y la puesta en marcha del Docker Compose ya que el archivo utilizado para el ejemplo es el utilizado en la Raspberry.
 
 \section{Conclusiones}
 
-Como se puede observar, al virtualizar los recursos disponibles obtenemos un aumento en rendimiento y reducción de los costo. 
+Como se puede observar, al virtualizar los recursos disponibles obtenemos un aumento en rendimiento y una reducción de los costes. 
 
 Docker nos permite el despliegue de aplicaciones de una manera sencilla y en cualquier plataforma que lo soporte. 
 
-Las diferencia más significativa entre las máquinas virtuales y Docker sería el uso del hipervisor y la necesidad de un sistema operativo para las máquinas virtuales. Cosa que en Docker no es necesario, esto hace que las aplicaciones desplegadas de esta manera tengan una reducción de tiempo al ejecutarse y en de tamaño.  
+La diferencia más significativa entre las máquinas virtuales y Docker sería el uso del Hipervisor y la necesidad de un sistema operativo para las máquinas virtuales, cosa que en Docker no es necesario. Ésto hace que las aplicaciones desplegadas de esta manera tengan una reducción de tiempo al ejecutarse y en de tamaño.  
