@@ -297,7 +297,7 @@
     \ifthenelse{\boolean{PFC}}{\begin{center}\Huge\sffamily\bfseries  PROJECTE DE FI DE CARRERA \end{center}  \\[5cm]}
                               %{\begin{center}\Huge\sffamily\bfseries  TREBALL DE FI DE CARRERA  \end{center}  \\[5cm]}
                               % Modificació respecte a la versió 2.1 - Iván Padilla Montero - Juliol 2014
-                              {\begin{center}\Huge\sffamily\bfseries  TREBALL DE FI DE GRAU  \end{center}  \\[5cm]}
+                              {\begin{center}\Huge\sffamily\bfseries  TRABAJO DE FIN DE GRADO  \end{center}  \\[5cm]}
                               
     \fbox{\parbox{\textwidth}{
         \vspace{2ex}

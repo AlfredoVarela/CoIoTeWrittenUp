@@ -209,7 +209,7 @@ CMD echo "Proyecto CoIoTe" | cowsay
 
 Aquí tenemos un ejemplo sencillo de DockerFile que nos servirá para explicar de una manera rápida como crearlos. 
 
-\texttt{FROM} indica la imágen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará de internet. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
+\texttt{FROM} indica la imágen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
 
 La instrucción \texttt{CMD} solo puede aparecer una vez en un DockerFile, si colocamos más de uno, solo el último tendrá efecto. El objetivo de esta instrucción es proveer valores por defecto a un contenedor. Estos valores pueden incluir un ejecutable u omitir un ejecutable que en dado caso se debe especificar un punto de entrada o entrypoint en las instrucciones. En nuestro caso pintaremos un texto que se le pasara a la aplicación Cowsay.
 
@@ -294,9 +294,9 @@ volumes:\newline
 \end{verbatim}
 \end{center}
 
-Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la aplicación Aaaida en la Raspberry Pi. 
+Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la infraestructura de Aaaida en la Raspberry Pi. 
 La importancia en los espacios es imprescindible para que éste funcione ya que da la jerarquía adecuada para que docker-compose lo entienda.
-Ahora pasaremos a explicar brevemente los argumentos que podemos encontrar en el. 
+Ahora pasaremos a explicar brevemente los argumentos que podemos encontrar en él. 
 En primer lugar tenemos los servicios, en nuestro caso son 2, una base de datos MongoDB y Aaaida.
 
 Dentro de \texttt{mongo} tendremos los siguientes: 

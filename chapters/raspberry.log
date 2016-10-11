@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  3 OCT 2016 16:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  11 OCT 2016 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -895,7 +895,7 @@ or  <return>  to continue without it.
 
 ! Undefined control sequence.
 l.25 \section
-             {Virtualización de la Raspberry}
+             {Virtualización de la Raspberry Pi}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -930,6 +930,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 25--26
 []
@@ -981,6 +983,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no r in font nullfont!
@@ -1035,7 +1039,7 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no n in font nullfont!
 Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no q in font nullfont!
+Missing character: There is no Q in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no m in font nullfont!
 Missing character: There is no u in font nullfont!
@@ -1235,6 +1239,9 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no d in font nullfont!
 Missing character: There is no o in font nullfont!
+Missing character: There is no 2 in font nullfont!
+Missing character: There is no . in font nullfont!
+Missing character: There is no 2 in font nullfont!
 Missing character: There is no � in font nullfont!
 Missing character: There is no � in font nullfont!
 Missing character: There is no Q in font nullfont!
@@ -1770,6 +1777,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no n in font nullfont!
@@ -1929,7 +1938,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 33--34
 
 ! Undefined control sequence.
 l.35 \section
-             {Raspberry y Docker}
+             {Raspberry Pi y Docker}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1945,6 +1954,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no D in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -2014,19 +2025,12 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no g in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no n in font nullfont!
-Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no l in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no R in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no s in font nullfont!
-Missing character: There is no p in font nullfont!
-Missing character: There is no b in font nullfont!
+Missing character: There is no n in font nullfont!
+Missing character: There is no Q in font nullfont!
 Missing character: There is no e in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no y in font nullfont!
+Missing character: There is no m in font nullfont!
+Missing character: There is no u in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no d in font nullfont!
@@ -2056,6 +2060,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no q in font nullfont!
 Missing character: There is no u in font nullfont!
 Missing character: There is no e in font nullfont!
@@ -2197,6 +2203,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no , in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
@@ -2349,6 +2357,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no 3 in font nullfont!
 Missing character: There is no c in font nullfont!
 Missing character: There is no o in font nullfont!
@@ -2407,7 +2417,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 37--38
 
 ! Undefined control sequence.
 l.39 \subsection
-                {Instalación de la imagen en la Raspberry}
+                {Instalación de la imagen en la Raspberry Pi}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -2449,6 +2459,8 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
+Missing character: There is no P in font nullfont!
+Missing character: There is no i in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 39--40
 []

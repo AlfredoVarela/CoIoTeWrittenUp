@@ -22,21 +22,21 @@ Algunas de las especificaciones mas importantes de las Raspberry Pi 3 son las si
 \end{figure}
 
 
-\section{Virtualización de la Raspberry}
+\section{Virtualización de la Raspberry Pi}
 
-Al inicio del proyecto no se disponía de una Raspberry para poder realizar las pruebas y se decidió emular la mediante qemu. 
+Al inicio del proyecto no se disponía de una Raspberry Pi para poder realizar las pruebas y se decidió emular la mediante Qemu. 
 Qemu es una aplicación que nos permite emular mediante máquinas virtuales gran parte de los sistemas operativos. 
-Lo cual es realmente sencillo emular una imagen de Raspbian si no fuera por un detalle, como se comenta en el apartado ¿Qué es Docker? Docker necesita un sistema x64 o Linux kernel 3.8+ y Raspberry ejecuta un sistema ARM lo que conlleva que Docker no sea compatible a primera instancia con la Raspberry. 
+Lo cual es realmente sencillo emular una imagen de Raspbian si no fuera por un detalle, como se comenta en el apartado 2.2 ¿Qué es Docker? Docker necesita un sistema x64 o Linux kernel 3.8+ y Raspberry ejecuta un sistema ARM lo que conlleva que Docker no sea compatible a primera instancia con la Raspberry. 
 La solución para este gran problema es la utilización de Hypriot, una imagen de Raspbian modificada con Docker instalado. 
-La instalación de esta imagen  requiere hacer unos retoques ya que no es del todo compatible el kernel de qemu con el de la imagen de Hypriot. Cosa que aun que permite emular perfectamente la imagen con Docker, no nos permite el uso correcto. Por lo tanto se decidió apartar por completo la posibilidad de poder emular una Raspberry con Docker instalado ya que las incompatibilidades del kernel no lo permitían.
+La instalación de esta imagen requiere hacer unos retoques ya que no es del todo compatible el kernel de qemu con el de la imagen de Hypriot. Cosa que aun que permite emular perfectamente la imagen con Docker, no nos permite el uso correcto. Por lo tanto se decidió apartar por completo la posibilidad de poder emular una Raspberry Pi con Docker instalado ya que las incompatibilidades del kernel no lo permitían.
 
 En el apéndice se podrá ver los pasos a seguir para la instalación y emulación de la imagen. 
 
-\section{Raspberry y Docker}
+\section{Raspberry Pi y Docker}
 
-Después de descartar completamente la opción de emular la imagen de la Raspberry se decidió probar en la Raspberry que disponía la empresa la imagen corria perfectamente. Y si, la imagen iba perfectamente y ejecutaba Docker sin ningún problema. Ahora el problema era la Raspberry, era el primer modelo el cual era viejo y no disponía de módulos para conexiones inalámbricas integrados por lo que se decidió aprovechando el lanzamiento de la nueva Raspberry 3 comprarla ya que si dispone de de conexiones inalámbrica. 
+Después de descartar completamente la opción de emular la imagen en Qemu se decidió probar en la Raspberry Pi que disponía la empresa la imagen corria perfectamente. Y si, la imagen iba perfectamente y ejecutaba Docker sin ningún problema. Ahora el problema era la Raspberry Pi, era el primer modelo el cual era viejo y no disponía de módulos para conexiones inalámbricas integrados por lo que se decidió aprovechando el lanzamiento de la nueva Raspberry Pi 3 comprarla ya que si dispone de de conexiones inalámbrica. 
 
-\subsection{Instalación de la imagen en la Raspberry}
+\subsection{Instalación de la imagen en la Raspberry Pi}
 
 La como se ha dicho, la imagen a la imagen de Raspbian no es posible instalar Docker de manera como lo haríamos en un sistema operativo como linux, es necesario una imagen la cual ya lo tenga instalado en nuestro caso utilizamos la imagen de Hypriot. La instalación se llevó a cabo de esta manera:
 
@@ -68,7 +68,7 @@ Por lo tanto se utilizó la siguiente imagen de Docker Hub:
 \texttt{partlab/ubuntu-arm-mongodb}
 \end{center}
 
-La otra imagen que se utilizar será la propia de Aaaida, pero igual que la imagen de mongo debería ser compatible con una arquitectura ARM y al ser una aplicación propia de la empresa no se encontraría en repositorios público, tendríamos que crearla nosotros mediante un Dockerfile. 
+La otra imagen que se utilizar será la propia de Aaaida, pero igual que la imagen de MongoDB debería ser compatible con una arquitectura ARM y al ser una aplicación propia de la empresa no se encontraría en repositorios público, tendríamos que crearla nosotros mediante un Dockerfile. 
 En la siguiente figura se puede ver el Dockerfile que se utilizara para poder crear el contenedor con Aaaida.
 
 \begin{verbatim}
@@ -110,7 +110,7 @@ EXPOSE 40000
 COPY . /aaaida
 \end{verbatim}
 
-Al principio del Dockerfile se ve la acción \texttt{FROM} que ya fue explicada en la cual carga una imagen de una debian para ARM, como observación se puede detectar que la imagen del mongo es para Ubuntu ARM y la imagen base para la aplicación de Aaaida es una debian ARM, distribuciones de linux diferentes en los dos contenedores. Esto demuestra que cada contenedor es un ente aislado que no tiene que depender del resto de contenedores.
+Al principio del Dockerfile se ve la acción \texttt{FROM} que ya fue explicada en la cual carga una imagen de una debian para ARM, como observación se puede detectar que la imagen del mongo es para Ubuntu ARM y la imagen base para Aaaida es una debian ARM, distribuciones de linux diferentes en los dos contenedores. Esto demuestra que cada contenedor es un ente aislado que no tiene que depender del resto de contenedores.
  
 A continuación de declarar la imagen base, vienen una serie de acciones con la instrucción \texttt{RUN}, que nos permite ejecutar cualquier comando. En el primer caso que hace un update e instala el curl.
  
@@ -120,14 +120,14 @@ Una vez instalado se utiliza la acción \texttt{COPY}, que como su nombre indica
 
 Si seguimos se ve que crea un directorio con el nombre de \texttt{aaaida} y hace que ese directorio sea el directorio de trabajo con la instrucción \texttt{WORKDIR}.
  
-Después Ejecutará \texttt{["/entrypoint"]} que al escribirlo en formato JSON la instrucción \texttt{CMD} ejecuta el contenido sin shell. El contenido de este script especifica los puertos, el host... de la aplicación. Se podrá ver su contenido en el apéndice.
+Después Ejecutará \texttt{[/entrypoint]} que al escribirlo en formato JSON la instrucción \texttt{CMD} ejecuta el contenido sin shell. El contenido de este script especifica los puertos, el host... de la aplicación. Se podrá ver su contenido en el apéndice.
  
 Para terminar con las 2 últimas instrucciones, que son \texttt{EXPOSE} y \texttt{COPY}, la cual la primera indica los puertos que el contenedor tendrá activos y por los cuales escuchara. El segundo hará una copia desde el punto raíz donde se ejecute el Dockerfile en el directorio creado anteriormente de \texttt{aaaida}.
 
 \subsection{Despliegue de la aplicación} 
 
 Para realizar el despliegue de Aaaida con las dos imágenes que se han creado en el apartado anterior sería suficiente, tan solo tendríamos que arrancar las imágenes para crear los contenedores. 
-Primero se haría un \texttt{docker run} sobre la imagen de MongoDb y acto seguido igual con la imagen de Aaaida, pero con una pequeña diferencia habría que linkear el contenedor de mongo para que la aplicación pueda encontrar la base de datos necesaria para funcionar.
+Primero se haría un \texttt{docker run} sobre la imagen de MongoDB y acto seguido igual con la imagen de Aaaida, pero con una pequeña diferencia habría que linkear el contenedor de mongo para que la aplicación pueda encontrar la base de datos necesaria para funcionar.
 \pagebreak 
 
 El comando utilizado para levantar el contenedor sería el siguiente:
@@ -202,8 +202,8 @@ Una vez disponemos de todas las piezas lista, se puede dar por concluido el proc
  
  \subsection{Conclusiones} 
  
-En este capítulo se puede ver que la Raspberry es el dispositivo para IoT más popular en el mercado, tanto por su prestaciones como por su reducido precio.
+En este capítulo se puede ver que la Raspberry Pi es el dispositivo para IoT más popular en el mercado, tanto por su prestaciones como por su reducido precio.
  
-De que no es posible virtualizar la Raspberry mediante Qemu y utilizar Docker ya que el kernel no es compatible. 
+De que no es posible virtualizar la Raspberry Pi mediante Qemu y utilizar Docker ya que el kernel no es compatible. 
 
-Y por último, aunque Docker no sea compatible para un sistema ARM gracias a unos pequeños cambios en la imagen se puede ejecutar, por lo tanto se pudo desplegar toda la infraestructura en la Raspberry y Aaaida funciona perfectamente. 
+Y por último, aunque Docker no sea compatible para un sistema ARM gracias a unos pequeños cambios en la imagen se puede ejecutar, por lo tanto se pudo desplegar toda la infraestructura en la Raspberry Pi y Aaaida funciona perfectamente. 
