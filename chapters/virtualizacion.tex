@@ -170,12 +170,12 @@ Este comando nos permite descargar una imagen en una versión concreta o tag dep
 \begin{center}
 \subfigure[Docker pull]{\includegraphics[width=0.90\textwidth]{./setup/DockerPull}}
 \subfigure[Docker images]{\includegraphics[width=0.90\textwidth]{./setup/DockerImages}}
-\caption{Comandos de docker (I)}
+\caption{Comandos de Docker (I)}
 \label{Com1:ComandosDocker1}
 \end{center}
 \end{figure}
 
-En las figuras \ref{Com1:ComandosDocker1} podemos apreciar como se descarga la última versión de la imagen de MongoDB y nos genera la imagen. 
+En la figuras \ref{Com1:ComandosDocker1} podemos apreciar como se descarga la última versión de la imagen de MongoDB y nos genera la imagen. 
 
 Una vez obtenida la imagen se pasará a levantar el contenedor para poder ejecutar el servicio con otro de los comandos explicados. 
 
@@ -189,14 +189,14 @@ Una vez obtenida la imagen se pasará a levantar el contenedor para poder ejecut
 \subfigure[Docker ps]{\includegraphics[width=0.90\textwidth]{./setup/DockerPs}}
 \subfigure[Docker run]{\includegraphics[width=0.90\textwidth]{./setup/DockerRun}}
 \subfigure[Docker ps]{\includegraphics[width=0.90\textwidth]{./setup/DockerPsDespues}}
-\caption{Comandos de docker (II)}
+\caption{Comandos de Docker (II)}
 \label{Com2:ComandosDocker2}
 \end{center}
 \end{figure}
 
 
-En las figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que
-permite ver qué contenedores están levantados, no hay ninguno (a) y cómo al inicializar con el comando  \texttt{docker run mongo} evanta el servicio (b) y esta vez sí aparece el contenedor (c).
+En la figuras \ref{Com2:ComandosDocker2} se puede apreciar cómo utilizando el comando \texttt{docker ps} que
+permite ver qué contenedores están levantados, no hay ninguno (a) y cómo al inicializar con el comando  \texttt{docker run mongo} levanta el servicio (b) y esta vez sí aparece el contenedor (c).
 
 La segunda manera de crear y personalizar imágenes es mediante un \texttt{DockerFile}, que es un documento de texto donde se encuentran los comandos que se deben ejecutar para generar nuestra imagen.
 
@@ -209,11 +209,11 @@ CMD echo "Proyecto CoIoTe" | cowsay
 
 Aquí tenemos un ejemplo sencillo de DockerFile que nos servirá para explicar de una manera rápida como crearlos. 
 
-\texttt{FROM} indica la imágen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
+\texttt{FROM} indica la imagen base que va a utilizar para seguir futuras instrucciones. Buscará si la imagen se encuentra localmente, en caso de que no, la descargará. En nuestro ejemplo utiliza la última versión de la imagen docker/whalesay.
 
 La instrucción \texttt{CMD} solo puede aparecer una vez en un DockerFile, si colocamos más de uno, solo el último tendrá efecto. El objetivo de esta instrucción es proveer valores por defecto a un contenedor. Estos valores pueden incluir un ejecutable u omitir un ejecutable que en dado caso se debe especificar un punto de entrada o entrypoint en las instrucciones. En nuestro caso pintaremos un texto que se le pasara a la aplicación Cowsay.
 
-Existen muchas más instrucciones, alguna de estas serán explicadas más adelante cuando sea necesario su uso. 
+Existen muchas más instrucciones, algunas de éstas serán explicadas más adelante cuando sea necesario su uso. 
 
 Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \texttt{-t} nos permite darle nombre a la imagen y el \texttt{ .} encontrar el DockerFile para ser compilado, tal y como se ve en la Figura \ref{Build:BuildDockerFile}, descarga del repositorio la imagen ya que no la tenemos en local. Creará una imagen intermedia que nos proporciona la caché en caso de fallo, continuará con la siguiente orden creando una nueva imagen y borrando las anteriores hasta obtener la imagen definitiva. 
  
@@ -225,7 +225,7 @@ Una vez ejecutado el comando \texttt{docker build -t docker-whale .} donde el \t
 \end{center}
 \end{figure}
  
-Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está creada correctamente (Figura \ref{Imag:ImageWhale}) y pasará a levantar el contenedor. Una vez levantado nos saldrá por pantalla el icono de docker “diciendo” la frase que le indicamos en el fichero. (Figura \ref{Run:RunWhale}) 
+Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está creada correctamente (Figura \ref{Imag:ImageWhale}) y pasará a levantar el contenedor. Una vez levantado nos saldrá por pantalla el icono de Docker “diciendo” la frase que le indicamos en el fichero. (Figura \ref{Run:RunWhale}) 
 
 \begin{figure}[htb]
 \begin{center}
@@ -294,7 +294,7 @@ volumes:\newline
 \end{verbatim}
 \end{center}
 
-Este es un ejemplo de docker-compose, exactamente el utilizado en el proyecto para poder levantar la infraestructura de Aaaida en la Raspberry Pi. 
+Este es un ejemplo de Docker-compose, exactamente el utilizado en el proyecto para poder levantar la infraestructura de Aaaida en la Raspberry Pi. 
 La importancia en los espacios es imprescindible para que éste funcione ya que da la jerarquía adecuada para que docker-compose lo entienda.
 Ahora pasaremos a explicar brevemente los argumentos que podemos encontrar en él. 
 En primer lugar tenemos los servicios, en nuestro caso son 2, una base de datos MongoDB y Aaaida.
@@ -329,4 +329,4 @@ Como se puede observar, al virtualizar los recursos disponibles obtenemos un aum
 
 Docker nos permite el despliegue de aplicaciones de una manera sencilla y en cualquier plataforma que lo soporte. 
 
-La diferencia más significativa entre las máquinas virtuales y Docker sería el uso del Hipervisor y la necesidad de un sistema operativo para las máquinas virtuales, cosa que en Docker no es necesario. Ésto hace que las aplicaciones desplegadas de esta manera tengan una reducción de tiempo al ejecutarse y en de tamaño.  
+La diferencia más significativa entre las máquinas virtuales y Docker sería el uso del Hipervisor y la necesidad de un sistema operativo para las máquinas virtuales, cosa que en Docker no es necesario. Ésto hace que las aplicaciones desplegadas de esta manera tengan una reducción en tamaño y en tiempo de ejecución.

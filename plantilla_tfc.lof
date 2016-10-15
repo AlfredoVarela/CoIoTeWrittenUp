@@ -12,10 +12,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Comparativa de m\IeC {\'a}quina virtual y Docker}}{9}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Infraestructura de Docker}}{11}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Comandos de docker (I)}}{12}{figure.2.3}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Comandos de Docker (I)}}{12}{figure.2.3}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Docker pull}}}{12}{figure.2.3}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Docker images}}}{12}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Comandos de docker (II)}}{13}{figure.2.4}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Comandos de Docker (II)}}{13}{figure.2.4}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Docker ps}}}{13}{figure.2.4}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Docker run}}}{13}{figure.2.4}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Docker ps}}}{13}{figure.2.4}
