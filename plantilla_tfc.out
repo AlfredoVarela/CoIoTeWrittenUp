@@ -26,6 +26,13 @@
 \BOOKMARK [2][-]{subsection.3.3.3}{Despliegue de la aplicaci\363n}{section.3.3}% 26
 \BOOKMARK [2][-]{subsection.3.3.4}{Conclusiones}{section.3.3}% 27
 \BOOKMARK [0][-]{chapter.4}{Aaaida}{}% 28
-\BOOKMARK [0][-]{chapter*.4}{Conclusiones}{}% 29
-\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 30
-\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Arquitectura}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.1.1}{Stack MEAN}{section.4.1}% 30
+\BOOKMARK [2][-]{subsection.4.1.2}{API REST}{section.4.1}% 31
+\BOOKMARK [2][-]{subsection.4.1.3}{Consola de Aaaida}{section.4.1}% 32
+\BOOKMARK [0][-]{chapter.5}{Implementaci\363n}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Comunicaci\363n con el sensor}{chapter.5}% 34
+\BOOKMARK [2][-]{subsection.5.1.1}{Protocolo}{section.5.1}% 35
+\BOOKMARK [0][-]{chapter*.4}{Conclusiones}{}% 36
+\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 37
+\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 38
