@@ -59,7 +59,10 @@
 \contentsline {subsubsection}{\numberline {5.2.1.4.}Package}{37}{subsubsection.5.2.1.4}
 \contentsline {subsubsection}{\numberline {5.2.1.5.}Plugin}{37}{subsubsection.5.2.1.5}
 \contentsline {subsection}{\numberline {5.2.2.}Creaci\IeC {\'o}n de la p\IeC {\'a}gina}{37}{subsection.5.2.2}
-\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Conclusiones}{39}{chapter*.4}
-\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Bibliograf\'{\i }a}{41}{chapter*.6}
+\contentsline {subsection}{\numberline {5.2.3.}Recursos utilizados}{39}{subsection.5.2.3}
+\contentsline {section}{\numberline {5.3.}Despliegue en las Raspberry Pi}{39}{section.5.3}
+\contentsline {section}{\numberline {5.4.}Conclusiones y Resultados}{39}{section.5.4}
+\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Conclusiones}{41}{chapter*.4}
+\contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Bibliograf\'{\i }a}{43}{chapter*.6}
 \changetoapp 
-\contentsline {chapter}{\numberline {A}Exemple de prova d'un ap\IeC {\`e}ndix}{45}{appendix.A}
+\contentsline {chapter}{\numberline {A}Exemple de prova d'un ap\IeC {\`e}ndix}{47}{appendix.A}

@@ -321,7 +321,7 @@ Creandonos una pestaña en la consola de Aaaida para el proyecto como podemos ve
 
 Una vez creado este fichero pasaremos a crear la template index.html y su controlador controller.js. En el controlador se realizan petición a las rutas creadas por route-injector para el modelo value y la ruta creada en el directorios routes para establecer la comunicación, y así poder rellenar el contenido de la plantilla.
 
-La página para la visualización de los resultados seria esta:
+La página para la visualización de los resultados sería esta:
 
 \begin{figure}[htb]
 \begin{center}
@@ -330,3 +330,66 @@ La página para la visualización de los resultados seria esta:
 %\label{sec:coioteSec}
 \end{center}
 \end{figure}
+\pagebreak
+
+\subsection{Recursos utilizados}
+
+A continuación se mostrará en una tabla todos aquellos recursos de la API de Aaaida que fueron utilizados. 
+
+
+\begin{table}[htb]
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|}
+
+\hline
+
+{\bf Modelo} & {\bf Tipo} &
+
+{\bf Ruta} \\ \hline \hline
+
+Bond & get & /bond/:user.login  \\ \hline
+
+Value & post & /values \\ \hline
+
+Value & post & /value \\ \hline
+
+- & get & /coiote/media \\ \hline
+
+\end{tabular}
+
+\caption{Exemple de taula}
+
+\label{T:prova}
+
+\end{center}
+
+\end{table}
+
+\begin{itemize}
+\item Devuelve toda la información del usuario que está logueado en Aaaida.
+\item Retorna los valores del bond del cual hemos tomado la medida.
+\item Guarda el valor de la medida realizada. 
+\item Establece la conexión y la recogida de datos.
+\end{itemize}
+
+\section{Despliegue en las Raspberry Pi}
+
+
+\section{Conclusiones y Resultados}
+
+Conseguir establecer la comunicación con el sensor fue una tarea para nada sencilla. Incluso haciendo tan solo la recogida de datos de una funcionalidad, se tuvo que entender muy bien cómo funcionaba y enviaba el sensor los datos. Sin contar que la documentación presentada por el fabricante se basaba únicamente en aplicaciones android. 
+
+Como resultados, se desarrolló un protocolo de comunicación con el sensor, el cual nos proporcionaba la media  del ritmo cardiaco. Está la comunicación se podía ejecutar mediante la consola de Aaaida donde se visualizará el resultado y una vez validado se guardará en la base de datos. Para finalizar se proporciona una gráfica donde se puede ver un seguimiento de las medidas realizadas. 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=1\textwidth]{./setup/final}
+\caption{Consola de Aaaida}
+%\label{sec:coioteSec}
+\end{center}
+\end{figure}
+\pagebreak
+
+
