@@ -1,6 +1,6 @@
 \chapter{Implementación}
 
-En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto, tanto como para conseguir la comunicación con el sensor utilizado, los cambios realizados en Aaaida para poder visualizar las mediciones del sensor y por último el despliegue de todo en la Raspberry Pi. 
+En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto, tanto como para conseguir la comunicación con el sensor utilizado, los cambios realizados en Aaaida para poder visualizar las mediciones del sensor y por último el despliegue en la Raspberry Pi. 
 
 \section{Comunicación con el sensor}
 
@@ -8,7 +8,7 @@ Para la realización del proyecto es necesario un sensor el cual se pueda comuni
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=1\textwidth]{./setup/arquitectura}
+\includegraphics[width=0.5\textwidth]{./setup/zephyr}
 \caption{Sesor Zephyr BioHarness 3}
 %\label{a:arquitectura}
 \end{center}
@@ -20,7 +20,7 @@ Por lo cual después de buscar y ponerse en contacto con la empresa no hay ning�
 
 Para la realización del código de comunicación fueron necesarios 2 módulos de Node.js uno que nos calcula el CRC y otro que establece una conexión bluetooth.
 
-módulos utilizados:
+Módulos utilizados:
 
 \begin{itemize}
 \item crc
@@ -43,7 +43,7 @@ var results = [];
 var is_stopping = false;
 \end{verbatim}
 
-Función \texttt{connect}, como su nombre indica nos conectara con el sensor y empezará a recibir datos. 
+Función \texttt{connect}, como su nombre indica, nos conectara con el sensor y empezará a recibir datos. 
 
 \begin{verbatim}
 function connect(callback) {
@@ -70,7 +70,7 @@ function connect(callback) {
 }
 \end{verbatim}
 
-La función \texttt{decode} nos permite decodificar de una manera muy simplificada los bytes que recibimos. Le pasamos el 2 byte y según su valor podremos saber qué tipo de mensaje nos está enviado el sensor. 
+La función \texttt{decode}, nos permite decodificar de una manera muy simplificada los bytes que recibimos. Le pasamos el segundo byte y según su valor podremos saber qué tipo de mensaje nos está enviado el sensor. Si en el segundo byte que se recibe es un 44 implica que en el octavo byte se está recibiendo el ritmo cardiaco.
 
 \begin{verbatim}
 function decode(data) {
@@ -79,7 +79,7 @@ function decode(data) {
            console.log("Received LifeSign message");
            break;
            \end{verbatim}
-           \pagebreak
+           %\pagebreak
            \begin{verbatim}
        case 44:
            console.log("Received Event message");
@@ -164,3 +164,169 @@ function avg(callback) {
 \end{verbatim}
 
 Con esto podremos establecer una conexión con el sensor y poder recibir la media del pulso cardiaco durante 20 seg. Hay que tener en cuenta la simplicidad del protocolo ya que solo capturamos una de las funciones (ritmo cardíaco) que nos proporciona el sensor Zephyr ya que si quisiéramos poder obtener todos los datos la complejidad sería mucho mayor y para desarrollarlo en JavaScript se necesitaría mucha más información sobre cómo se envían las tramas y que contiene cada una de ellas. 
+\pagebreak
+\section{Integración con Aaaida}
+
+Como se explicó en el capítulo anterior la consola de Aaaida es una plataforma web, que nos permite administrar toda la información de las aplicaciones vinculadas a ella. 
+Para poder incluir nuestra aplicación de monitorización del ritmo cardiaco con Aaaida y así visualizar lo en la web hay que crear un plugin de Aaaida con nuestro proyecto. 
+
+\subsection{Creación de un plugin}
+
+Para el desarrollo de cada uno de los plugins se ha utilizado el framework llamado route-injector desarrollado por Alteraid y Ondho. 
+
+El objetivo principal de este framework es el de generar, de manera automática:
+los método http CRUD de la API REST (GET, PUT, POST,DELETE) y una
+backoffice, mediante modelos.
+
+Para la creación del plugin de proyecto deberemos de seguir la arquitectura principal de los plugins.
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.20\textwidth]{./setup/arc}
+\caption{Arquitectura de los plugins}
+%\label{a:arquitectura}
+\end{center}
+\end{figure}
+
+\subsubsection{Models}
+
+En el caso de este proyecto no se creará ningún modelo de datos nuevo, ya que Aaaida dispone de un conjunto de modelos de datos que concuerda con el modelo que necesitamos. El modelo elegido será Value, que cumple todas las necesidades de las medidas realizadas.
+
+Los campos utilizados son los siguientes:
+
+\begin{verbatim}
+{
+    value: {type: String},
+    user: {type: mongoose.Schema.Types.Mixed, ref: 'User'},
+    bond: {type: mongoose.Schema.Types.Mixed, ref: 'Bond'},
+    measure: {type: mongoose.Schema.Types.Mixed, ref: 'Measure'},
+    tags: {type: String},
+    measured_at: {type: Date, readonly: true}
+}
+\end{verbatim}
+\pagebreak
+
+\begin{itemize}
+\item value: Será el valor de la medida de ritmo cardiaco registrada. 
+\item user: El usuario con el cual se está logueado en Aaaida
+\item bond: Sería el “paciente” al cual se le toma la medida.
+\item tags: Este campo se utiliza para diferenciar de a qué aplicación pertenecen los valores.  
+\item measured at: El instante que se tomó el valor. 
+\end{itemize}
+
+\subsubsection{Routes}
+
+En el caso de que fuese necesario obtener información más concreta sobre el
+modelo de datos, se deberían de definir cada una de esas rutas en la carpeta
+routes del plugin. Como hemos dicho route-injector nos genera automáticamente el CRUD para el modelo Values, pero necesita una ruta específica para ejecutar la conexión vía bluetooth con el sensor. 
+
+Por lo tanto fue necesario la creación de la ruta, en el mismo fichero se copio todo el protocolo para la conexión con el sensor Zephyr. 
+
+\begin{verbatim}
+module.exports.route = function (router) {
+   router.get('/coiote/media', function (req, res) {
+       connect(function (media) {
+           console.log("Tu HR media = " + media);
+           res.json(media)
+       });
+   });
+};
+\end{verbatim}
+
+Como se puede apreciar en el código una petición \texttt{get} a \texttt{ /coiote/media } ejecutará la función \texttt{connect} que establece la comunicación y recolección de datos.  
+
+\subsubsection{Index}
+
+En el siguiente fichero se configuran las funciones iniciales del plugin una vez
+este ha cargado.
+
+\begin{verbatim}
+module.exports.config = require('./plugin.json');
+
+module.exports.init = function (conf) { 
+};
+\end{verbatim}
+
+No plugin no debe hacer ninguna función al iniciarse por lo tanto no debemos añadir nada en este fichero.
+\pagebreak
+\subsubsection{Package} 
+
+En este fichero, se describe toda la información necesaria del paquete. 
+
+\begin{verbatim}
+{
+ "name": "coiote-plugin",
+ "version": "0.0.1",
+ "description": "Plugin for CoIoTe",
+ "dependencies": {
+   "bluetooth-serial-port": "^2.0.0",
+   "crc": "^3.4.0"
+ }
+}
+\end{verbatim}
+
+Se puede apreciar las 2 dependencias a módulos externos nombrados anteriormente. 
+
+\subsubsection{Plugin} 
+
+En este fichero se indica el nombre del plugin y el directorio donde se encuentran
+las rutas estáticas. Sirve para especificar dónde se encuentran todas esas rutas generadas para el plugin y no han sido creadas automáticamente por route-injector. 
+
+\begin{verbatim}
+{
+ "name": "CoIoTe",
+ "routes": ["routes"]
+}
+\end{verbatim}
+
+\subsection{Creación de la página}
+
+Una vez el plugin está creado, se necesitará crear la página web donde poder visualizar en la consola de Aaaida los resultados obtenidos de las medidas. 
+
+Para esto se seguirá un proceso similar al de crear un plugin, pero en el directorio de pages, que tiene una arquitectura base similar a la siguiente:  
+
+\begin{verbatim}
+FOTO DE LOS DIRECTORIOS!!!!!!!!!
+\end{verbatim}
+
+En este directorio, se encuentran definidos cada uno de los templates externos que se añadirán a la backoffice.
+
+En este caso, ha sido necesario añadir el de coiote. En este directorio podemos encotrar el template index.js donde se define el controlador y como se visualiza en la consola de Aaaida y su Url. 
+
+\begin{verbatim}
+module.exports = {
+   backoffice: true,
+   url: 'coiote/mesures',
+   template: 'coiote/index.html',
+   controller: 'ChartCoioteController',
+   menu: {
+       clickTo: 'coiote/mesures',
+       title: "mesures",
+       section: "CoIoTe"
+   }
+   //backoffice: false // standalone website
+};
+\end{verbatim}
+
+Creandonos una pestaña en la consola de Aaaida para el proyecto como podemos ver en la figura \ref{sec:coioteSec}. 
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./setup/arquitecturaCoiote}
+\caption{Sección en la consola de Aaaida}
+\label{sec:coioteSec}
+\end{center}
+\end{figure}
+
+Una vez creado este fichero pasaremos a crear la template index.html y su controlador controller.js. En el controlador se realizan petición a las rutas creadas por route-injector para el modelo value y la ruta creada en el directorios routes para establecer la comunicación, y así poder rellenar el contenido de la plantilla.
+
+La página para la visualización de los resultados seria esta:
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=1\textwidth]{./setup/visualizacionPaginaCoiote}
+\caption{visualización de los datos en Aaaida}
+%\label{sec:coioteSec}
+\end{center}
+\end{figure}

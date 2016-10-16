@@ -33,6 +33,9 @@
 \BOOKMARK [0][-]{chapter.5}{Implementaci\363n}{}% 33
 \BOOKMARK [1][-]{section.5.1}{Comunicaci\363n con el sensor}{chapter.5}% 34
 \BOOKMARK [2][-]{subsection.5.1.1}{Protocolo}{section.5.1}% 35
-\BOOKMARK [0][-]{chapter*.4}{Conclusiones}{}% 36
-\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 37
-\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 38
+\BOOKMARK [1][-]{section.5.2}{Integraci\363n con Aaaida}{chapter.5}% 36
+\BOOKMARK [2][-]{subsection.5.2.1}{Creaci\363n de un plugin}{section.5.2}% 37
+\BOOKMARK [2][-]{subsection.5.2.2}{Creaci\363n de la p\341gina}{section.5.2}% 38
+\BOOKMARK [0][-]{chapter*.4}{Conclusiones}{}% 39
+\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 40
+\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 41
