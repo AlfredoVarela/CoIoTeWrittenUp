@@ -63,6 +63,11 @@
 \contentsline {section}{\numberline {5.3.}Despliegue en las Raspberry Pi}{39}{section.5.3}
 \contentsline {section}{\numberline {5.4.}Conclusiones y Resultados}{39}{section.5.4}
 \contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Conclusiones}{41}{chapter*.4}
+\contentsline {section}{\numberline {5.5.}Conclusiones del proyecto}{41}{section.5.5}
+\contentsline {section}{\numberline {5.6.}Conclusiones personales}{41}{section.5.6}
+\contentsline {section}{\numberline {5.7.}Implementaciones futuras}{42}{section.5.7}
+\contentsline {section}{\numberline {5.8.}Impacto ambiental}{42}{section.5.8}
 \contentsline {chapter}{\relax \fontsize {14.4}{18}\selectfont \sffamily \bfseries Bibliograf\'{\i }a}{43}{chapter*.6}
 \changetoapp 
-\contentsline {chapter}{\numberline {A}Exemple de prova d'un ap\IeC {\`e}ndix}{47}{appendix.A}
+\contentsline {chapter}{\numberline {A}Emular la Raspberry Pi en Qemu}{47}{appendix.A}
+\contentsline {chapter}{\numberline {B}Entrypoint para Aaaida en Raspberry Pi}{49}{appendix.B}

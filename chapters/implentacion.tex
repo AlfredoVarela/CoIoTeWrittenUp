@@ -1,10 +1,10 @@
 \chapter{Implementación}
 
-En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto, tanto como para conseguir la comunicación con el sensor utilizado, los cambios realizados en Aaaida para poder visualizar las mediciones del sensor y por último el despliegue en la Raspberry Pi. 
+En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto, tanto como para conseguir la comunicación con el sensor, los cambios realizados en Aaaida para poder visualizar las mediciones del sensor y por último el despliegue en la Raspberry Pi. 
 
 \section{Comunicación con el sensor}
 
-Para la realización del proyecto es necesario un sensor el cual se pueda comunicar y enviar los datos por bluetooth. En la empresa se dispone de una serie de sensores médicos de los cuales se utilizará un monitor de ritmo cardiaco, Zephyr BioHarness 3. 
+Para la realización del proyecto es necesario un sensor que se pueda comunicar y enviar los datos mediante bluetooth. En la empresa se dispone de una serie de sensores médicos de los cuales se utilizará un monitor de ritmo cardiaco, Zephyr BioHarness 3. 
 
 \begin{figure}[htb]
 \begin{center}
@@ -16,7 +16,7 @@ Para la realización del proyecto es necesario un sensor el cual se pueda comuni
 
 El fabricante te ofrece gran cantidad de documentación y una aplicación de prueba para los desarrolladores que quieran realizar productos y utilicen sus sensores. Pero todo está orientado a aplicaciones Android, las cuales son las más populares para este tipo de sensores. 
 
-Por lo cual después de buscar y ponerse en contacto con la empresa no hay ningún tipo protocolo para establecer contacto y recibir los datos en JavaScript. Por lo tanto, se decidió realizar uno utilizando toda la documentación y ejemplos para otros lenguajes. 
+Por lo tanto, después de buscar y ponerse en contacto con la empresa, no hay ningún tipo protocolo para establecer contacto y recibir los datos en JavaScript. Por lo que se decidió realizar uno utilizando toda la documentación y ejemplos para otros lenguajes. 
 
 Para la realización del código de comunicación fueron necesarios 2 módulos de Node.js uno que nos calcula el CRC y otro que establece una conexión bluetooth.
 
@@ -30,7 +30,7 @@ Módulos utilizados:
 
 \subsection{Protocolo}
 
-El código realizado para poder establecer la comunicaciones fue el siguiente.
+El código realizado para poder establecer la comunicaciones fue el siguiente:
  
 Se cargan los módulos externos y se declaran las variables, la dirección MAC del sensor se pone a clavo para evitar interferencias con otros dispositivos bluetooth.
 
@@ -70,7 +70,7 @@ function connect(callback) {
 }
 \end{verbatim}
 
-La función \texttt{decode}, nos permite decodificar de una manera muy simplificada los bytes que recibimos. Le pasamos el segundo byte y según su valor podremos saber qué tipo de mensaje nos está enviado el sensor. Si en el segundo byte que se recibe es un 44 implica que en el octavo byte se está recibiendo el ritmo cardiaco.
+La función \texttt{decode}, nos permite decodificar de una manera muy simplificada los bytes que se reciben. Le pasa el segundo byte y según su valor se puede saber qué tipo de mensaje envía el sensor. Si en el segundo byte que se recibe es un 44 implica que en el noveno byte que se está recibiendo el ritmo cardiaco.
 
 \begin{verbatim}
 function decode(data) {
@@ -124,7 +124,7 @@ function listener(socket, callback) {
 }
 \end{verbatim}
 
-La creación de los mensajes \texttt{lifeSings} se realizan de la siguiente manera: Son la concatenación de un byte de sincronismo, el mensaje, el dlc que será la longitud del payload, el crc calculado mediante el payload y por ultimo otro byte de cierre. Todo paquete se pasará a hexadecimal y se procederá a enviarlo.
+La creación de los mensajes \texttt{lifeSings} se realizan de la siguiente manera: Son la concatenación de un byte de sincronismo, el mensaje, el dlc que será la longitud del payload, el crc calculado mediante el payload y por ultimo otro byte de cierre. Todo el paquete se pasará a hexadecimal y se procederá a enviarlo.
  \pagebreak
 \begin{verbatim}
 function create_message_frame(message_id, payload) {
@@ -163,7 +163,7 @@ function avg(callback) {
 }
 \end{verbatim}
 
-Con esto podremos establecer una conexión con el sensor y poder recibir la media del pulso cardiaco durante 20 seg. Hay que tener en cuenta la simplicidad del protocolo ya que solo capturamos una de las funciones (ritmo cardíaco) que nos proporciona el sensor Zephyr ya que si quisiéramos poder obtener todos los datos la complejidad sería mucho mayor y para desarrollarlo en JavaScript se necesitaría mucha más información sobre cómo se envían las tramas y que contiene cada una de ellas. 
+Con esto se puede establecer una conexión con el sensor y poder recibir la media del pulso cardiaco durante 20 seg. Hay que tener en cuenta la simplicidad del protocolo, ya que solo se captura una de las funciones (ritmo cardíaco) que proporciona el sensor Zephyr, ya que si se quiere obtener todos los datos la complejidad sería mucho mayor y para desarrollarlo en JavaScript se necesitaría mucha más información sobre cómo se envían las tramas y que contiene cada una de ellas.
 \pagebreak
 \section{Integración con Aaaida}
 
@@ -183,7 +183,7 @@ Para la creación del plugin de proyecto deberemos de seguir la arquitectura pri
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.20\textwidth]{./setup/arc}
+\includegraphics[width=0.35\textwidth]{./setup/arc}
 \caption{Arquitectura de los plugins}
 %\label{a:arquitectura}
 \end{center}
@@ -191,7 +191,7 @@ Para la creación del plugin de proyecto deberemos de seguir la arquitectura pri
 
 \subsubsection{Models}
 
-En el caso de este proyecto no se creará ningún modelo de datos nuevo, ya que Aaaida dispone de un conjunto de modelos de datos que concuerda con el modelo que necesitamos. El modelo elegido será Value, que cumple todas las necesidades de las medidas realizadas.
+En el caso de este proyecto no se creará ningún modelo de datos nuevo, ya que Aaaida dispone de un conjunto de modelos de datos que concuerda con el modelo que se necesita. El modelo elegido será Value, que cumple todas las necesidades de las medidas realizadas.
 
 Los campos utilizados son los siguientes:
 
@@ -211,7 +211,7 @@ Los campos utilizados son los siguientes:
 \item value: Será el valor de la medida de ritmo cardiaco registrada. 
 \item user: El usuario con el cual se está logueado en Aaaida
 \item bond: Sería el “paciente” al cual se le toma la medida.
-\item tags: Este campo se utiliza para diferenciar de a qué aplicación pertenecen los valores.  
+\item tags: Este campo se utiliza para diferenciar de qué aplicación pertenecen los valores.  
 \item measured at: El instante que se tomó el valor. 
 \end{itemize}
 
@@ -219,7 +219,7 @@ Los campos utilizados son los siguientes:
 
 En el caso de que fuese necesario obtener información más concreta sobre el
 modelo de datos, se deberían de definir cada una de esas rutas en la carpeta
-routes del plugin. Como hemos dicho route-injector nos genera automáticamente el CRUD para el modelo Values, pero necesita una ruta específica para ejecutar la conexión vía bluetooth con el sensor. 
+routes del plugin. Como se dijo, route-injector genera automáticamente el CRUD para el modelo Values, pero necesita una ruta específica para ejecutar la conexión vía bluetooth con el sensor. 
 
 Por lo tanto fue necesario la creación de la ruta, en el mismo fichero se copio todo el protocolo para la conexión con el sensor Zephyr. 
 
@@ -248,7 +248,7 @@ module.exports.init = function (conf) {
 };
 \end{verbatim}
 
-No plugin no debe hacer ninguna función al iniciarse por lo tanto no debemos añadir nada en este fichero.
+El plugin no debe hacer ninguna función al iniciarse, por lo tanto, no debemos añadir nada en este fichero.
 \pagebreak
 \subsubsection{Package} 
 
@@ -270,7 +270,7 @@ Se puede apreciar las 2 dependencias a módulos externos nombrados anteriormente
 
 \subsubsection{Plugin} 
 
-En este fichero se indica el nombre del plugin y el directorio donde se encuentran
+En este fichero, se indica el nombre del plugin y el directorio donde se encuentran
 las rutas estáticas. Sirve para especificar dónde se encuentran todas esas rutas generadas para el plugin y no han sido creadas automáticamente por route-injector. 
 
 \begin{verbatim}
@@ -284,15 +284,20 @@ las rutas estáticas. Sirve para especificar dónde se encuentran todas esas rut
 
 Una vez el plugin está creado, se necesitará crear la página web donde poder visualizar en la consola de Aaaida los resultados obtenidos de las medidas. 
 
-Para esto se seguirá un proceso similar al de crear un plugin, pero en el directorio de pages, que tiene una arquitectura base similar a la siguiente:  
+Para esto se seguirá un proceso similar al de crear un plugin, pero en el directorio de \texttt{pages}, que tiene una arquitectura base similar a la siguiente:  
 
-\begin{verbatim}
-FOTO DE LOS DIRECTORIOS!!!!!!!!!
-\end{verbatim}
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=0.35\textwidth]{./setup/arc2}
+\caption{Arquitectura del directorio pages}
+%\label{a:arquitectura}
+\end{center}
+\end{figure}
+
 
 En este directorio, se encuentran definidos cada uno de los templates externos que se añadirán a la backoffice.
 
-En este caso, ha sido necesario añadir el de coiote. En este directorio podemos encotrar el template index.js donde se define el controlador y como se visualiza en la consola de Aaaida y su Url. 
+En este caso, ha sido necesario añadir el de coiote. En este directorio podemos encotrar el template index.js donde se define el controlador y como se visualiza en la consola de Aaaida y su URL. 
 
 \begin{verbatim}
 module.exports = {
@@ -313,13 +318,13 @@ Creandonos una pestaña en la consola de Aaaida para el proyecto como podemos ve
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.5\textwidth]{./setup/arquitecturaCoiote}
+\includegraphics[width=0.25\textwidth]{./setup/arquitecturaCoiote}
 \caption{Sección en la consola de Aaaida}
 \label{sec:coioteSec}
 \end{center}
 \end{figure}
 
-Una vez creado este fichero pasaremos a crear la template index.html y su controlador controller.js. En el controlador se realizan petición a las rutas creadas por route-injector para el modelo value y la ruta creada en el directorios routes para establecer la comunicación, y así poder rellenar el contenido de la plantilla.
+Una vez creado este fichero pasaremos a crear la template \texttt{index.html} y su controlador \texttt{controller.js}. En el controlador se realizan petición a las rutas creadas por route-injector para el modelo \texttt{value} y la ruta creada en el directorios \texttt{routes} para establecer la comunicación, y así poder rellenar el contenido de la plantilla.
 
 La página para la visualización de los resultados sería esta:
 
@@ -381,7 +386,7 @@ Value & post & /value \\ \hline
 
 Conseguir establecer la comunicación con el sensor fue una tarea para nada sencilla. Incluso haciendo tan solo la recogida de datos de una funcionalidad, se tuvo que entender muy bien cómo funcionaba y enviaba el sensor los datos. Sin contar que la documentación presentada por el fabricante se basaba únicamente en aplicaciones android. 
 
-Como resultados, se desarrolló un protocolo de comunicación con el sensor, el cual nos proporcionaba la media  del ritmo cardiaco. Está la comunicación se podía ejecutar mediante la consola de Aaaida donde se visualizará el resultado y una vez validado se guardará en la base de datos. Para finalizar se proporciona una gráfica donde se puede ver un seguimiento de las medidas realizadas. 
+Como resultados, se desarrolló un protocolo de comunicación con el sensor, el cual nos proporcionaba la media  del ritmo cardiaco. La comunicación se podía ejecutar mediante la consola de Aaaida donde se visualizará el resultado y una vez validado se guardará en la base de datos. Para finalizar se proporciona una gráfica donde se puede ver un seguimiento de las medidas realizadas. 
 
 \begin{figure}[htb]
 \begin{center}

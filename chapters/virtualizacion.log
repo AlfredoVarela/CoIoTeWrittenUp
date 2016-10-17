@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  16 OCT 2016 15:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  17 OCT 2016 16:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -12714,7 +12714,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 239--240
 
 ! Undefined control sequence.
 l.241 \includegraphics
-                      [width=0.70\textwidth]{./setup/DockerRunWhale}
+                      [width=0.50\textwidth]{./setup/DockerRunWhale}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -12730,12 +12730,12 @@ Missing character: There is no h in font nullfont!
 Missing character: There is no = in font nullfont!
 Missing character: There is no 0 in font nullfont!
 Missing character: There is no . in font nullfont!
-Missing character: There is no 7 in font nullfont!
+Missing character: There is no 5 in font nullfont!
 Missing character: There is no 0 in font nullfont!
 ! Missing number, treated as zero.
 <to be read again> 
                    ]
-l.241 \includegraphics[width=0.70\textwidth]
+l.241 \includegraphics[width=0.50\textwidth]
                                             {./setup/DockerRunWhale}
 A number should have been here; I inserted `0'.
 (If you can't figure out why I needed to see a number,
@@ -12744,7 +12744,7 @@ look up `weird error' in the index to The TeXbook.)
 ! Illegal unit of measure (pt inserted).
 <to be read again> 
                    ]
-l.241 \includegraphics[width=0.70\textwidth]
+l.241 \includegraphics[width=0.50\textwidth]
                                             {./setup/DockerRunWhale}
 Dimensions can be in units of em, ex, in, pt, pc,
 cm, mm, dd, cc, nd, nc, bp, or sp; but yours is a new one!
@@ -13618,67 +13618,98 @@ Overfull \hbox (5.24995pt too wide) in paragraph at lines 279--279
  []
 
 
-Overfull \hbox (41.99963pt too wide) in paragraph at lines 294--294
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+! LaTeX Error: The font size command \normalsize is not defined:
+               there is probably something wrong with the class file.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.281   \begin
+              {verbatim}
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[5
+! Undefined control sequence.
+<write> \newlabel{Run:RunWhale}{{}{\thepage 
+                                            }}
+l.281   \begin
+              {verbatim}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{Run:RunWhale}{{}{}}
+]
+Overfull \hbox (41.99963pt too wide) in paragraph at lines 295--295
 [] \OT1/cmtt/m/n/10 aaaida:[] 
  []
 
 
-Overfull \hbox (141.74876pt too wide) in paragraph at lines 294--294
+Overfull \hbox (141.74876pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 container_name: aaaidaArm[] 
  []
 
 
-Overfull \hbox (89.24922pt too wide) in paragraph at lines 294--294
+Overfull \hbox (89.24922pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 restart: always[] 
  []
 
 
-Overfull \hbox (199.49826pt too wide) in paragraph at lines 294--294
+Overfull \hbox (199.49826pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 image: alteraid/aaaida-datastore-arm[] 
  []
 
 
-Overfull \hbox (41.99963pt too wide) in paragraph at lines 294--294
+Overfull \hbox (41.99963pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 links:[] 
  []
 
 
-Overfull \hbox (83.99927pt too wide) in paragraph at lines 294--294
+Overfull \hbox (83.99927pt too wide) in paragraph at lines 295--295
 []   \OT1/cmtt/m/n/10 - mongo:mongo[] 
  []
 
 
-Overfull \hbox (73.49936pt too wide) in paragraph at lines 294--294
+Overfull \hbox (73.49936pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 environment:[] 
  []
 
 
-Overfull \hbox (104.99908pt too wide) in paragraph at lines 294--294
+Overfull \hbox (104.99908pt too wide) in paragraph at lines 295--295
 []   \OT1/cmtt/m/n/10 - NODE_ENV=docker[] 
  []
 
 
-Overfull \hbox (41.99963pt too wide) in paragraph at lines 294--294
+Overfull \hbox (41.99963pt too wide) in paragraph at lines 295--295
 []  \OT1/cmtt/m/n/10 ports:[] 
  []
 
 
-Overfull \hbox (94.49918pt too wide) in paragraph at lines 294--294
+Overfull \hbox (94.49918pt too wide) in paragraph at lines 295--295
 []   \OT1/cmtt/m/n/10 - "40000:40000"[] 
  []
 
 
-Overfull \hbox (83.99927pt too wide) in paragraph at lines 294--294
+Overfull \hbox (83.99927pt too wide) in paragraph at lines 295--295
 []\OT1/cmtt/m/n/10 volumes:\newline[] 
  []
 
 
-Overfull \hbox (62.99945pt too wide) in paragraph at lines 294--294
+Overfull \hbox (62.99945pt too wide) in paragraph at lines 295--295
 [] \OT1/cmtt/m/n/10 mongo-data:[] 
  []
 
 
-Overfull \hbox (83.99927pt too wide) in paragraph at lines 294--294
+Overfull \hbox (83.99927pt too wide) in paragraph at lines 295--295
 []   \OT1/cmtt/m/n/10 driver: local[] 
  []
 
@@ -14079,7 +14110,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 297--301
+Overfull \hbox (20.0pt too wide) in paragraph at lines 298--302
 []
  []
 
@@ -14115,12 +14146,12 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 302--303
+Overfull \hbox (20.0pt too wide) in paragraph at lines 303--304
 []
  []
 
 
-Overfull \hbox (26.24977pt too wide) in paragraph at lines 302--303
+Overfull \hbox (26.24977pt too wide) in paragraph at lines 303--304
 \OT1/cmtt/m/n/10 mongo
  []
 
@@ -14223,12 +14254,12 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no r in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (67.24959pt too wide) in paragraph at lines 304--305
+Overfull \hbox (67.24959pt too wide) in paragraph at lines 305--306
 []\OT1/cmtt/m/n/10 container
  []
 
 
-Overfull \hbox (20.99982pt too wide) in paragraph at lines 304--305
+Overfull \hbox (20.99982pt too wide) in paragraph at lines 305--306
 \OT1/cmtt/m/n/10 name
  []
 
@@ -14313,7 +14344,7 @@ Missing character: There is no s in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (56.74968pt too wide) in paragraph at lines 306--307
+Overfull \hbox (56.74968pt too wide) in paragraph at lines 307--308
 []\OT1/cmtt/m/n/10 restart
  []
 
@@ -14379,7 +14410,7 @@ Missing character: There is no i in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (46.24977pt too wide) in paragraph at lines 308--309
+Overfull \hbox (46.24977pt too wide) in paragraph at lines 309--310
 []\OT1/cmtt/m/n/10 image
  []
 
@@ -14488,7 +14519,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (56.74968pt too wide) in paragraph at lines 310--311
+Overfull \hbox (56.74968pt too wide) in paragraph at lines 311--312
 []\OT1/cmtt/m/n/10 volumes
  []
 
@@ -14660,7 +14691,7 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (56.74968pt too wide) in paragraph at lines 312--313
+Overfull \hbox (56.74968pt too wide) in paragraph at lines 313--314
 []\OT1/cmtt/m/n/10 command
  []
 
@@ -14775,32 +14806,32 @@ Missing character: There is no m in font nullfont!
 Missing character: There is no o in font nullfont!
 Missing character: There is no : in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 314--315
+Overfull \hbox (20.0pt too wide) in paragraph at lines 315--316
 []
  []
 
 
-Overfull \hbox (31.49973pt too wide) in paragraph at lines 314--315
+Overfull \hbox (31.49973pt too wide) in paragraph at lines 315--316
 \OT1/cmtt/m/n/10 aaaida
  []
 
 
-Overfull \hbox (47.24959pt too wide) in paragraph at lines 314--315
+Overfull \hbox (47.24959pt too wide) in paragraph at lines 315--316
 \OT1/cmtt/m/n/10 container
  []
 
 
-Overfull \hbox (20.99982pt too wide) in paragraph at lines 314--315
+Overfull \hbox (20.99982pt too wide) in paragraph at lines 315--316
 \OT1/cmtt/m/n/10 name
  []
 
 
-Overfull \hbox (36.74968pt too wide) in paragraph at lines 314--315
+Overfull \hbox (36.74968pt too wide) in paragraph at lines 315--316
 \OT1/cmtt/m/n/10 restart
  []
 
 
-Overfull \hbox (26.24977pt too wide) in paragraph at lines 314--315
+Overfull \hbox (26.24977pt too wide) in paragraph at lines 315--316
 \OT1/cmtt/m/n/10 image
  []
 
@@ -14838,7 +14869,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (46.24977pt too wide) in paragraph at lines 316--317
+Overfull \hbox (46.24977pt too wide) in paragraph at lines 317--318
 []\OT1/cmtt/m/n/10 links
  []
 
@@ -14873,7 +14904,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (77.7495pt too wide) in paragraph at lines 318--319
+Overfull \hbox (77.7495pt too wide) in paragraph at lines 319--320
 []\OT1/cmtt/m/n/10 environment
  []
 
@@ -14902,7 +14933,7 @@ Missing character: There is no o in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (46.24977pt too wide) in paragraph at lines 320--321
+Overfull \hbox (46.24977pt too wide) in paragraph at lines 321--322
 []\OT1/cmtt/m/n/10 ports
  []
 
@@ -15005,17 +15036,17 @@ Missing character: There is no d in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 322--323
+Overfull \hbox (20.0pt too wide) in paragraph at lines 323--324
 []
  []
 
 
-Overfull \hbox (36.74968pt too wide) in paragraph at lines 322--323
+Overfull \hbox (36.74968pt too wide) in paragraph at lines 323--324
 \OT1/cmtt/m/n/10 volumes
  []
 
 
-Overfull \hbox (26.24977pt too wide) in paragraph at lines 322--323
+Overfull \hbox (26.24977pt too wide) in paragraph at lines 323--324
 \OT1/cmtt/m/n/10 mongo 
  []
 
@@ -15180,12 +15211,12 @@ Missing character: There is no r in font nullfont!
 Missing character: There is no y in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 324--325
+Overfull \hbox (20.0pt too wide) in paragraph at lines 325--326
 []
  []
 
 ! Undefined control sequence.
-l.326 \section
+l.327 \section
               {Conclusiones}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -15206,7 +15237,7 @@ Missing character: There is no n in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 326--327
+Overfull \hbox (20.0pt too wide) in paragraph at lines 327--328
 [] 
  []
 
@@ -15323,7 +15354,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 328--329
+Overfull \hbox (20.0pt too wide) in paragraph at lines 329--330
 []
  []
 
@@ -15424,7 +15455,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no . in font nullfont!
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 330--331
+Overfull \hbox (20.0pt too wide) in paragraph at lines 331--332
 []
  []
 
@@ -15715,5 +15746,5 @@ Here is how much of TeX's memory you used:
  3657 multiletter control sequences out of 15000+600000
  4116 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 19i,4n,14p,557b,195s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 19i,4n,14p,557b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

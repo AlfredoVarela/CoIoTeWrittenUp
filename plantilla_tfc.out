@@ -40,5 +40,10 @@
 \BOOKMARK [1][-]{section.5.3}{Despliegue en las Raspberry Pi}{chapter.5}% 40
 \BOOKMARK [1][-]{section.5.4}{Conclusiones y Resultados}{chapter.5}% 41
 \BOOKMARK [0][-]{chapter*.4}{Conclusiones}{}% 42
-\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 43
-\BOOKMARK [0][-]{appendix.A}{Exemple de prova d'un ap\350ndix}{}% 44
+\BOOKMARK [1][-]{section.5.5}{Conclusiones del proyecto}{chapter*.4}% 43
+\BOOKMARK [1][-]{section.5.6}{Conclusiones personales}{chapter*.4}% 44
+\BOOKMARK [1][-]{section.5.7}{Implementaciones futuras}{chapter*.4}% 45
+\BOOKMARK [1][-]{section.5.8}{Impacto ambiental}{chapter*.4}% 46
+\BOOKMARK [0][-]{chapter*.6}{Bibliograf\355a}{}% 47
+\BOOKMARK [0][-]{appendix.A}{Emular la Raspberry Pi en Qemu}{}% 48
+\BOOKMARK [0][-]{appendix.B}{Entrypoint para Aaaida en Raspberry Pi}{}% 49

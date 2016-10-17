@@ -2,4 +2,44 @@
 \phantomsection
 \chapter*{Conclusiones}
 
-Escriure aquí les conclusions del projecte. 
+En este capítulo se comentarán las conclusiones finales y personales del proyecto realizado, así como los objetivos conseguidos y implementaciones futuras.
+
+
+\section{Conclusiones del proyecto}
+
+El propósito de este proyecto ha consistido en el desarrollo de una producto nuevo para la empresa AlterAid. Este producto consiste en hacer un despliegue del servicio Aaaida de la empresa en un dispositivo móvil, como seria una Raspberry Pi, que nos permitirá poder desplegarlo en lugares con dificil acceso o que hayan sufrido catástrofes y establecer una pequeña red de sensores. 
+Para llevar a cabo el despliegue se utilizó Docker, para poder crear contenedores donde que contengan el software y nos faciliten la gestión. 
+
+Para el desarrollo del proyecto ha sido necesario definir una serie de objetivos, para lograr el avance. El primer objetivo consistió en analizar las diferentes tecnologías empleadas en el trabajo. Todo este análisis se ve reflejado satisfactoriamente en los primero capitulos. 
+Una vez el aprendizaje estaba concluido, se pasó a la instalación de entorno, donde se debía de instalar Docker en la Raspberry Pi, que como se puede ver en el capítulo 3 donde se consiguió realizar, se descubrió que no es posible virtualizar la Raspberry Pi con Qemu y utilizar Docker. Era necesario disponer de una Raspberry Pi 3 para la realización del proyecto. Con todo el entorno funcionando perfectamente, se realizó el despliegue de Aaaida en el dispositivo. Donde también se obtuvieron resultados positivos. La creación de los nodos, se utilizó un sensor de monitorización del ritmo cardíaco, para la toma de medidas y la comunicaciones con la Raspberry Pi mediante bluetooth. Este fue un punto crítico del proyecto, ya que aun disponiendo de documentación y alguna aplicación de ejemplo se tuvo que crear un protocolo para establecer la comunicación y captar los datos del sensor, cosa que llevo mucho tiempo para lograr entender cómo se transmitían los datos. Para finalizar, se realizó un plugin para Aaaida y así poder captar, visualizar y almacenar los datos tomados por el sensor. 
+
+El proyecto concluye de forma satisfactoria ya que se ha conseguido cumplir todos los puntos establecidos de manera aceptable. 
+
+La utilización de Docker para un despliegue, fuera del mundo de los servidores, queda probado que es posible. Es Viable siempre que se puedan salvar los inconvenientes mostrados a lo largo de proyecto. Las mejoras obtenidas gracias a la utilización de Docker son: su facilidad y comodidad a la hora de realizar despliegues de las aplicaciones y su mantenimiento ya que la actualización de estas se puede hacer parcialmente gracias a sus separación por contenedores. 
+
+\section{Conclusiones personales}
+
+Gracias al desarrollo de este trabajo, he adquirido tanto conocimientos sobre
+nuevas tecnologías como también, me ha permitido mejorar la manera de
+organizarme a la hora de desarrollar proyectos.
+
+\pagebreak
+Los conocimientos conseguidos con la realización del proyecto tanto sobre las tecnologías empleadas como en la manera de distribuir tareas son de gran ayuda de cara a mi vida laboral y personal. 
+
+La realización del proyecto me ha resultado muy interesante, ya que he podido realizar un trabajo utilizando tecnologías nuevas para mí. Cosa que me puso a prueba, a la hora de tener la necesidad de adquirir conocimiento de manera autónoma. 
+
+\section{Implementaciones futuras}
+
+Se puede afirmar que los objetivos principales de este proyecto se han cumplido.
+De todas maneras, existen mejoras que pueden dar un valor añadido, tales como:
+
+\begin{itemize}
+\item Incluir nuevos sensores para la toma de medidas. 
+\item Creación de nuevas aplicaciones o maneras de tomar las medidas.
+\end{itemize}
+
+Como implementación futura de carácter personal, se podría mejorar el protocolo de conexión con Zephyr y publicarlo como módulo npm para Node.js ya que no existe ningún tipo de conector en JavaScript.
+
+\section{Impacto ambiental} 
+
+El análisis sobre el impacto ambiental del proyecto. Dado que se centra en desarollo de sofware lo único a tener en cuenta sería la batería del sensor y que la Raspberry Pi necesita una toma de corriente para poder funcionar. Donde hay que tener en cuenta que los 2 dispositivos utilizados, son de bajo consumo. 
