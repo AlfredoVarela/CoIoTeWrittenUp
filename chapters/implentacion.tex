@@ -1,6 +1,6 @@
 \chapter{Implementación}
 
-En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto, tanto como para conseguir la comunicación con el sensor, los cambios realizados en Aaaida para poder visualizar las mediciones del sensor y por último el despliegue en la Raspberry Pi. 
+En este capítulo se explicará las implementaciones realizadas para poder llevar a cabo el proyecto. Como conseguir la comunicación con el sensor, los cambios realizados en Aaaida, para poder visualizar las mediciones del sensor y por último el despliegue en la Raspberry Pi. 
 
 \section{Comunicación con el sensor}
 
@@ -16,7 +16,7 @@ Para la realización del proyecto es necesario un sensor que se pueda comunicar 
 
 El fabricante te ofrece gran cantidad de documentación y una aplicación de prueba para los desarrolladores que quieran realizar productos y utilicen sus sensores. Pero todo está orientado a aplicaciones Android, las cuales son las más populares para este tipo de sensores. 
 
-Por lo tanto, después de buscar y ponerse en contacto con la empresa, no hay ningún tipo protocolo para establecer contacto y recibir los datos en JavaScript. Por lo que se decidió realizar uno utilizando toda la documentación y ejemplos para otros lenguajes. 
+Por lo tanto, después de buscar y ponerse en contacto con la empresa, no hay ningún tipo protocolo para establecer la comunicación y recibir los datos en JavaScript. Por lo que se decidió realizar uno utilizando toda la documentación y ejemplos para otros lenguajes. 
 
 Para la realización del código de comunicación fueron necesarios 2 módulos de Node.js uno que nos calcula el CRC y otro que establece una conexión bluetooth.
 
@@ -282,7 +282,7 @@ las rutas estáticas. Sirve para especificar dónde se encuentran todas esas rut
 
 \subsection{Creación de la página}
 
-Una vez el plugin está creado, se necesitará crear la página web donde poder visualizar en la consola de Aaaida los resultados obtenidos de las medidas. 
+Una vez el plugin está creada, se necesitará crear la página web donde poder visualizar en la consola de Aaaida los resultados obtenidos de las medidas. 
 
 Para esto se seguirá un proceso similar al de crear un plugin, pero en el directorio de \texttt{pages}, que tiene una arquitectura base similar a la siguiente:  
 
@@ -331,7 +331,7 @@ La página para la visualización de los resultados sería esta:
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=1\textwidth]{./setup/visualizacionPaginaCoiote}
-\caption{visualización de los datos en Aaaida}
+\caption{Visualización de los datos en Aaaida}
 %\label{sec:coioteSec}
 \end{center}
 \end{figure}
@@ -383,7 +383,7 @@ Value & post & /value \\ \hline
 
 Para realizar el despliegue de la aplicación, se llevaron a cabo un seguido de cambios. 
 Lo primero a realizar, fue la creación de un módulo npm con el plugin de coiote. Para poder resolver las dependencias necesarias al cargar Aaaida.
-Resuelto el problema con las dependencias, el siguiente cambio realizado fue en el Dockerfile para crear la imagen de Aaaida. Se añadió la instalación de las librerías para el uso del bluetooth en la Raspberry Pi, necesarias para la comunicación con el sensor. 
+Resuelto el problema con las dependencias, el siguiente cambio realizado fue en el Dockerfile, para crear la imagen de Aaaida. Se añadió la instalación de las librerías para el uso del bluetooth en la Raspberry Pi, necesarias para la comunicación con el sensor. 
 Las librerías instaladas fueron:
  
 \begin{itemize}
@@ -398,7 +398,7 @@ El siguiente cambio que se llevó a cabo fue en el docker-compose.yml. Para que 
 \item \texttt{network mode: "host" }: Permite ver todas las redes disponibles por la máquina. 
 \end{itemize}
 
-El problema, al añadir el argumento network mode este contenedor no podrá se podrá utilizar el argumento link, que vincula el contendor de aaaida con el contendor de mongo.  Ya que Docker no soporta los dos funcionalidades activas, se procedió a eliminar ese link que unía los dos contenedores. Para solucionar el problema, ya que es imprescindible que el contenedor de aaaida pueda acceder a los datos se tiene que exponer los puertos del servicio de mongo para que este sea visible desde el exterior. A si el contenedor de aaaida no sabrá de la existencia de otro contenedor con sus datos pero como los puertos de este contenedor están abiertos se pueden realizar las peticiones. Estos cambios implican que se deben de hacer modificaciones en los ficheros de env, para que aaaida no haga las peticiones al contenedor linkado sino a la IP y al puerto abierto.
+El problema, al añadir el argumento \texttt{network mode} este contenedor no podrá se podrá utilizar el argumento \texttt{link}, que vincula el contendor de \texttt{aaaida} con el contendor de \texttt{mongo}.  Ya que Docker no soporta los dos funcionalidades activas, se procedió a eliminar ese \texttt{link} que unía los dos contenedores. Para solucionar el problema, ya que es imprescindible que el contenedor de \texttt{aaaida} pueda acceder a los datos se tiene que exponer los puertos del servicio de \texttt{mongo} para que este sea visible desde el exterior. A si el contenedor de \texttt{aaaida} no sabrá de la existencia de otro contenedor con sus datos pero como los puertos de este contenedor están abiertos se pueden realizar las peticiones. Estos cambios implican que se deben de hacer modificaciones en los ficheros de \texttt{env}, para que \texttt{aaaida} no haga las peticiones al contenedor linkado sino a la IP y al puerto abierto.
 
 Los ficheros modificados se podrán ver en los Apéndices del proyecto. 
 
@@ -473,7 +473,7 @@ En caso que no se disponga de conexión de internet, se debería modificar los f
 
 \section{Conclusiones y Resultados}
 
-Conseguir establecer la comunicación con el sensor fue una tarea para nada sencilla. Incluso haciendo tan solo la recogida de datos de una funcionalidad, se tuvo que entender muy bien cómo funcionaba y enviaba el sensor los datos. Sin contar que la documentación presentada por el fabricante se basaba únicamente en aplicaciones android. 
+Conseguir establecer la comunicación con el sensor fue una tarea para nada sencilla. Incluso haciendo tan solo la recogida de datos de una funcionalidad, se tuvo que entender muy bien cómo funcionaba y enviaba el sensor los datos. Sin contar que la documentación presentada por el fabricante se basaba únicamente en aplicaciones Android. 
 
 Como resultados, se desarrolló un protocolo de comunicación con el sensor, el cual nos proporcionaba la media  del ritmo cardiaco. La comunicación se podía ejecutar mediante la consola de Aaaida donde se visualizará el resultado y una vez validado se guardará en la base de datos. Para finalizar se proporciona una gráfica donde se puede ver un seguimiento de las medidas realizadas. 
 

@@ -246,7 +246,7 @@ Una vez hecho el build del DockerFile podemos comprobar que nuestra imagen está
 
 \subsection{Docker Compose}
 
-Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez. Se creará un archivo docker-compose.yml donde se configurarán todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con éstas los contenedores especificados a la vez que arrancará la aplicación.
+Docker Compose es un orquestador que nos permite ejecutar aplicaciones que utilicen varios contenedores a la vez. Se creará un archivo \texttt{docker-compose.yml} donde se configurarán todos los servicios necesarios para nuestra aplicación. Una vez ejecutado este archivo nos generará todas las imágenes y con éstas los contenedores especificados a la vez que arrancará la aplicación.
 
 Los comandos que se utilizarán serán similares a los utilizados en la creación de imágenes.
 
@@ -263,7 +263,7 @@ Para detener el servicio y detener los contenedores.
 \end{center} 
 %\pagebreak 
 
-Docker-compose también permite ejecutar solo partes del.yml para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
+Docker-compose también permite ejecutar solo partes del \texttt{.yml} para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
 
 \begin{center}
 \begin{verbatim}
@@ -310,7 +310,7 @@ Dentro de \texttt{mongo} tendremos los siguientes:
 
 \texttt{volumes}: En caso de Mongo necesita un directorio donde almacenar los datos. Ésto especıfica donde se creará el volumen de datos.
 
-\texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar este comando ya que activará el Journaling, que por defecto viene desactivado.
+\texttt{command}:  El comando que le pasamos al contenedor al momento de su ejecución. En este caso concreto es muy importante ejecutar este comando ya que activará el \texttt{Journaling}, que por defecto viene desactivado.
 
 En el siguiente servicio, el de \texttt{aaaida}, a parte de disponer los mismos argumentos basicos como serian \texttt{container name}, \texttt{restart} o \texttt{image}, encontraremos alguno más como:
 
@@ -322,7 +322,7 @@ En el siguiente servicio, el de \texttt{aaaida}, a parte de disponer los mismos 
 
 Para finalizar el archivo se encuentra los \texttt{volumes} donde se genera el volumen que hemos especificado dentro del servicio de \texttt{mongo}.  
 
-En puntos posteriores se explicará más detenidamente el funcionamiento y la puesta en marcha del Docker Compose ya que el archivo utilizado para el ejemplo es el utilizado en la Raspberry.
+En puntos posteriores se explicará más detenidamente el funcionamiento y la puesta en marcha del Docker Compose ya que el archivo utilizado para el ejemplo es el utilizado en la Raspberry Pi.
 
 \section{Conclusiones}
 
