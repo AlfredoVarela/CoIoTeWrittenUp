@@ -34,18 +34,18 @@ El código realizado para poder establecer la comunicaciones fue el siguiente:
  
 Se cargan los módulos externos y se declaran las variables, la dirección MAC del sensor se pone a clavo para evitar interferencias con otros dispositivos bluetooth.
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 var crc = require('crc');
 var btSerial = new (require('bluetooth-serial-port')).BluetoothSerialPort();
 
 ADDRESS = "E0:D7:BA:A7:F1:5D";
 var results = [];
 var is_stopping = false;
-\end{verbatim}
+\end{lstlisting}
 
 Función \texttt{connect}, como su nombre indica, nos conectara con el sensor y empezará a recibir datos. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 function connect(callback) {
    var socket = btSerial.on('found', function (address) {
        if (address == ADDRESS) {
@@ -68,19 +68,19 @@ function connect(callback) {
    });
    btSerial.inquire();
 }
-\end{verbatim}
+\end{lstlisting}
 
 La función \texttt{decode}, nos permite decodificar de una manera muy simplificada los bytes que se reciben. Le pasa el segundo byte y según su valor se puede saber qué tipo de mensaje envía el sensor. Si en el segundo byte que se recibe es un 44 implica que en el noveno byte que se está recibiendo el ritmo cardiaco.
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 function decode(data) {
    switch (data[1]) {
        case 35:
            console.log("Received LifeSign message");
            break;
-           \end{verbatim}
+           \end{lstlisting}
            %\pagebreak
-           \begin{verbatim}
+           \begin{lstlisting}[language=JavaScript]
        case 44:
            console.log("Received Event message");
            results.push(data[8]);
@@ -103,11 +103,11 @@ function decode(data) {
            break;
    }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Una vez conectados al sensor se debe enviar mensajes a este para que mantenga la conexión y no se desconecte (\texttt{lifeSings}). Como la finalidad es realizar una medida la comunicación se realizará durante 20 seg, una vez pasados estos 20 seg se cerrara la conexion. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 function listener(socket, callback) {
    socket.on('data', function (buffer) {
        decode(buffer);
@@ -122,11 +122,11 @@ function listener(socket, callback) {
        });
    }, 20000);
 }
-\end{verbatim}
+\end{lstlisting}
 
 La creación de los mensajes \texttt{lifeSings} se realizan de la siguiente manera: Son la concatenación de un byte de sincronismo, el \texttt{message id}, el \texttt{dlc} que será la longitud del payload, el \texttt{crc} calculado mediante el payload y por ultimo otro byte de cierre. Todo el paquete se pasará a hexadecimal y se procederá a enviarlo.
  \pagebreak
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 function create_message_frame(message_id, payload) {
    dlc = payload.toString().length;
    if (0 <= dlc <= 128) {
@@ -137,11 +137,11 @@ function create_message_frame(message_id, payload) {
        return message_fame
    }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Por último la función de \texttt{stop} y la función de \texttt{avg}, la función de \texttt{stop} cerrará la conexión y la función de \texttt{avg} calcula la media de todas las medidas tomadas durante los 20 seg y devolverá la media. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 function stop(socket, callback) {
    is_stopping = true;
    socket.close();
@@ -161,7 +161,7 @@ function avg(callback) {
        callback(media);
    }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Con esto se puede establecer una conexión con el sensor y poder recibir la media del pulso cardiaco durante 20 seg. Hay que tener en cuenta la simplicidad del protocolo, ya que solo se captura una de las funciones (ritmo cardíaco) que proporciona el sensor Zephyr, ya que si se quiere obtener todos los datos la complejidad sería mucho mayor y para desarrollarlo en JavaScript se necesitaría mucha más información sobre cómo se envían las tramas y que contiene cada una de ellas.
 \pagebreak
@@ -195,7 +195,7 @@ En el caso de este proyecto no se creará ningún modelo de datos nuevo, ya que 
 
 Los campos utilizados son los siguientes:
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 {
     value: {type: String},
     user: {type: mongoose.Schema.Types.Mixed, ref: 'User'},
@@ -204,7 +204,7 @@ Los campos utilizados son los siguientes:
     tags: {type: String},
     measured_at: {type: Date, readonly: true}
 }
-\end{verbatim}
+\end{lstlisting}
 \pagebreak
 
 \begin{itemize}
@@ -223,7 +223,7 @@ routes del plugin. Como se dijo, route-injector genera automáticamente el CRUD 
 
 Por lo tanto fue necesario la creación de la ruta, en el mismo fichero se copio todo el protocolo para la conexión con el sensor Zephyr. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 module.exports.route = function (router) {
    router.get('/coiote/media', function (req, res) {
        connect(function (media) {
@@ -232,7 +232,7 @@ module.exports.route = function (router) {
        });
    });
 };
-\end{verbatim}
+\end{lstlisting}
 
 Como se puede apreciar en el código una petición \texttt{get} a \texttt{ /coiote/media } ejecutará la función \texttt{connect} que establece la comunicación y recolección de datos.  
 
@@ -241,12 +241,12 @@ Como se puede apreciar en el código una petición \texttt{get} a \texttt{ /coio
 En el siguiente fichero se configuran las funciones iniciales del plugin una vez
 este ha cargado.
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 module.exports.config = require('./plugin.json');
 
 module.exports.init = function (conf) { 
 };
-\end{verbatim}
+\end{lstlisting}
 
 El plugin no debe hacer ninguna función al iniciarse, por lo tanto, no debemos añadir nada en este fichero.
 \pagebreak
@@ -254,7 +254,7 @@ El plugin no debe hacer ninguna función al iniciarse, por lo tanto, no debemos 
 
 En este fichero, se describe toda la información necesaria del paquete. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 {
  "name": "coiote-plugin",
  "version": "0.0.1",
@@ -264,7 +264,7 @@ En este fichero, se describe toda la información necesaria del paquete.
    "crc": "^3.4.0"
  }
 }
-\end{verbatim}
+\end{lstlisting}
 
 Se puede apreciar las 2 dependencias a módulos externos nombrados anteriormente. 
 
@@ -273,12 +273,12 @@ Se puede apreciar las 2 dependencias a módulos externos nombrados anteriormente
 En este fichero, se indica el nombre del plugin y el directorio donde se encuentran
 las rutas estáticas. Sirve para especificar dónde se encuentran todas esas rutas generadas para el plugin y no han sido creadas automáticamente por route-injector. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 {
  "name": "CoIoTe",
  "routes": ["routes"]
 }
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Creación de la página}
 
@@ -299,7 +299,7 @@ En este directorio, se encuentran definidos cada uno de los templates externos q
 
 En este caso, ha sido necesario añadir el de coiote. En este directorio podemos encotrar el template index.js donde se define el controlador y como se visualiza en la consola de Aaaida y su URL. 
 
-\begin{verbatim}
+\begin{lstlisting}[language=JavaScript]
 module.exports = {
    backoffice: true,
    url: 'coiote/mesures',
@@ -312,7 +312,7 @@ module.exports = {
    }
    //backoffice: false // standalone website
 };
-\end{verbatim}
+\end{lstlisting}
 
 Creandonos una pestaña en la consola de Aaaida para el proyecto como podemos ver en la figura \ref{sec:coioteSec}. 
 
