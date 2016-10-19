@@ -47,4 +47,8 @@
 \BOOKMARK [0][-]{chapter*.5}{Glosario}{}% 47
 \BOOKMARK [0][-]{chapter*.7}{Bibliograf\355a}{}% 48
 \BOOKMARK [0][-]{appendix.A}{Emular la Raspberry Pi en Qemu}{}% 49
-\BOOKMARK [0][-]{appendix.B}{Entrypoint para Aaaida en Raspberry Pi}{}% 50
+\BOOKMARK [0][-]{appendix.B}{Ficheros utilizados}{}% 50
+\BOOKMARK [1][-]{section.B.1}{Fichero entrypoint}{appendix.B}% 51
+\BOOKMARK [1][-]{section.B.2}{Script build rpi image}{appendix.B}% 52
+\BOOKMARK [1][-]{section.B.3}{Dockerfile modificado}{appendix.B}% 53
+\BOOKMARK [1][-]{section.B.4}{Docker-compose.yml modificado}{appendix.B}% 54
