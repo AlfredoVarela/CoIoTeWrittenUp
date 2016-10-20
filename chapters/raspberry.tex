@@ -40,14 +40,13 @@ Después de descartar completamente la opción de emular la imagen en Qemu se de
 
 Como se ha dicho, a la imagen de Raspbian no es posible instalar Docker como lo haríamos en un sistema operativo como linux. Es necesario una imagen la cual ya lo tenga instalado, como la imagen de Hypriot. La instalación se llevó a cabo de esta manera:
 
-\begin{verbatim}
-$ curl -sSL http://downloads.hypriot.com/docker-hypriot_1.8.2-1_armhf.deb 
->/tmp/docker-hypriot_1.8.2-1_armhf.deb
+\begin{lstlisting}[style=Bash]
+$ curl -sSL http://downloads.hypriot.com/docker-hypriot_1.8.2-1_armhf.deb >/tmp/docker hypriot_1.8.2-1_armhf.deb
 $ sudo dpkg -i /tmp/docker-hypriot_1.8.2-1_armhf.deb
 $ rm -f /tmp/docker-hypriot_1.8.2-1_armhf.deb
 $ sudo sh -c 'usermod -aG docker $SUDO_USER'
 $ sudo systemctl enable docker.service
-\end{verbatim}
+\end{lstlisting}
 
 \begin{itemize}
 \item Primero descargá la imagen deseada y la montará en un directorio temporal.
@@ -71,7 +70,7 @@ Por lo tanto se utilizó la siguiente imagen de Docker Hub:
 La otra imagen que se utilizará será la propia de Aaaida, pero igual que, la imagen de MongoDB deberá ser compatible con una arquitectura ARM. Al ser una aplicación propia de la empresa no se encontrará en repositorios público y tendremos que crearla nosotros mediante un Dockerfile. 
 En la siguiente figura se puede ver el Dockerfile que se utilizará para poder crear el contenedor con Aaaida.
 
-\begin{verbatim}
+\begin{lstlisting}[style=Bash]
 FROM ioft/armhf-debian
 RUN apt-get update; apt-get -y install curl
 RUN set -ex \  
@@ -89,18 +88,16 @@ RUN set -ex \
 	done
 
 ENV NODE_VERSION 4.4.5
-
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[style=Bash]
 RUN curl -SLO 
-"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-
-linux-armv7l.tar.gz" \  
+"https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-armv7l.tar.gz" \  
 && curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/SHASUMS256.txt.asc" \  
 && gpg --batch --decrypt --output SHASUMS256.txt SHASUMS256.txt.asc \  
-&& grep "node-v$NODE_VERSION-linux-armv7l.tar.gz\$" SHASUMS256.txt | 
-sha256sum -c - \  
-&& tar -xzf "node-v$NODE_VERSION-linux-armv7l.tar.gz" -C /usr/local 
---strip-components=1 \  
-&& rm "node-v$NODE_VERSION-linux-armv7l.tar.gz" SHASUMS256.txt.asc 
-SHASUMS256.txt
+&& grep "node-v$NODE_VERSION-linux-armv7l.tar.gz\$" SHASUMS256.txt | sha256sum -c - \  
+&& tar -xzf "node-v$NODE_VERSION-linux-armv7l.tar.gz" -C /usr/local --strip-components=1 \  
+&& rm "node-v$NODE_VERSION-linux-armv7l.tar.gz" SHASUMS256.txt.asc SHASUMS256.txt
 
 COPY scripts/rpi_docker/entrypoint /entrypoint
 RUN mkdir /aaaida
@@ -108,7 +105,7 @@ WORKDIR /aaaida
 CMD ["/entrypoint"]
 EXPOSE 40000
 COPY . /aaaida
-\end{verbatim}
+\end{lstlisting}
 
 Al principio del Dockerfile se ve la acción \texttt{FROM}, encargada de cargar una imagen de una Debian para ARM. Como observación se puede detectar que la imagen del mongo es para Ubuntu ARM y la imagen base para Aaaida es una Debian ARM, distribuciones de linux diferentes en los dos contenedores. Esto demuestra que cada contenedor es un ente aislado que no tiene que depender del resto de contenedores.
  
@@ -128,7 +125,6 @@ Para terminar con las 2 últimas instrucciones, que son \texttt{EXPOSE} y \textt
 
 Para realizar el despliegue de Aaaida, con las dos imágenes que se han creado en el apartado anterior será suficiente. Tan solo tendremos que arrancar las imágenes para crear los contenedores. 
 Primero se hará un \texttt{docker run} sobre la imagen de MongoDB y acto seguido igual con la imagen de Aaaida, pero con una pequeña diferencia: habrá que linkear el contenedor de mongo para que la aplicación pueda encontrar la base de datos necesaria para funcionar.
-\pagebreak 
 
 El comando utilizado para levantar el contenedor sería el siguiente:
 
@@ -148,13 +144,12 @@ Si se levanta el proceso mediante el comando \texttt{docker-compose up} se puede
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{./setup/dockerComposeUp}
+\includegraphics[width=0.70\textwidth]{./setup/dockerComposeUp}
 \caption{Docker-compose up}
 \label{ComUp:composeUp}
 \end{center}
 \end{figure} 
 \pagebreak
-
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.95\textwidth]{./setup/dockerpsVolumen}
@@ -167,7 +162,7 @@ En las dos figuras anteriores (\ref{ComUp:composeUp} y \ref{psVl:psVolumen}) se 
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.95\textwidth]{./setup/AaaidaDatastore}
+\includegraphics[width=0.70\textwidth]{./setup/AaaidaDatastore}
 \caption{Acceso a Aaaida}
 \label{webLog:LoggeoAaaida}
 \end{center}

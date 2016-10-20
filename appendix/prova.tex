@@ -1,7 +1,7 @@
 \chapter{Emular la Raspberry Pi en Qemu}
 
-\begin{verbatim}
-----------Compilar qemu con soporte ARM 1176---------------
+\begin{lstlisting}[style=Bash]
+---------- Compilar qemu con soporte ARM 1176 ----
 
 # apt-get install git zlib1g-dev libsdl1.2-dev
 # apt-get install libpixman-1-dev libfdt-dev
@@ -9,16 +9,16 @@ $ mkdir raspberrypi
 $ cd raspberrypi
 $ git clone git://git.qemu-project.org/qemu.git
 $ cd qemu
-$ ./configure --target-list="arm-softmmu arm-linux-user" --enable-sdl 
---prefix=/usr
+$ ./configure --target-list="arm-softmmu arm-linux-user" 
+--enable-sdl --prefix=/usr
 $ make
 # make install
 
----------- Descargar la imagen de la raspberry pi y el kernel-qemu------
+---- Descargar la imagen de la raspberry pi y el kernel-qemu ------
 
 $ wget "http://downloads.raspberrypi.org/raspbian_latest"
-$ unzip 2016-03-18-raspbian-jessie.img.zip    //(la versión que te descarges)
-$ rm -rf 2016-03-18-raspbian-jessie.img.zip	  //(la versión descargada)
+$ unzip 2016-03-18-raspbian-jessie.img.zip    
+$ rm -rf 2016-03-18-raspbian-jessie.img.zip	  
 
 $ fdisk -l 2016-03-18-raspbian-jessie.img 
 $ sudo mount -v -o offset=67108864 -t ext4 2016-03-18-raspbian-jessie.img /mnt/
@@ -28,23 +28,19 @@ $ sudo nano ./etc/fstab 	 	 //(Comentar la segunda linea)
 $ cd ~
 $ sudo umount /mnt
 
-------------Ejecutar por primera vez-------------------------
+------------ Ejecutar por primera vez -----------------
 
-$ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb 
--no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" 
--hda 2016-03-18-raspbian-jessie.img -redir tcp:2222::22
-
-
+$ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda 2016-03-18-raspbian-jessie.img -redir tcp:2222::22
+\end{lstlisting}
+\pagebreak
+\begin{lstlisting}[style=Bash]
 ------------ Resize de la imagen ---------------------
 
 $ qemu-img resize raspi.img +16024M 
-$ qemu-system-arm -M versatilepb -cpu arm1176 -hda 2016-03-18-raspbian-jessie.img 
--kernel kernel-qemu -m 192 -append "root=/dev/sda2" -drive file=raspi.img
+$ qemu-system-arm -M versatilepb -cpu arm1176 -hda 2016-03-18-raspbian-jessie.img -kernel kernel-qemu -m 192 -append "root=/dev/sda2" -drive file=raspi.img
 $ sudo apt-get -y install gparted
 $ sudo gparted
-$ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb 
--no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw"
--hda raspi.img -redir tcp:2222::22
-\end{verbatim}
+$ qemu-system-arm -kernel kernel-qemu -cpu arm1176 -m 256 -M versatilepb -no-reboot -serial stdio -append "root=/dev/sda2 panic=1 rootfstype=ext4 rw" -hda raspi.img -redir tcp:2222::22
+\end{lstlisting}
 
 Puede haber problemas con la interfaz gráfica, ya que si no hay suficiente memoria en la imagen, se deshabilita. 

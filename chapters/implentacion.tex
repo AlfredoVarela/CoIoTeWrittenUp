@@ -78,9 +78,6 @@ function decode(data) {
        case 35:
            console.log("Received LifeSign message");
            break;
-           \end{lstlisting}
-           %\pagebreak
-           \begin{lstlisting}[language=JavaScript]
        case 44:
            console.log("Received Event message");
            results.push(data[8]);
@@ -116,6 +113,9 @@ function listener(socket, callback) {
            if (err) console.log(err);
        });
    });
+   \end{lstlisting}
+   \pagebreak
+   \begin{lstlisting}[language=JavaScript]
    setTimeout(function () {
        stop(socket, function (res) {
            callback(res);
@@ -125,7 +125,7 @@ function listener(socket, callback) {
 \end{lstlisting}
 
 La creación de los mensajes \texttt{lifeSings} se realizan de la siguiente manera: Son la concatenación de un byte de sincronismo, el \texttt{message id}, el \texttt{dlc} que será la longitud del payload, el \texttt{crc} calculado mediante el payload y por ultimo otro byte de cierre. Todo el paquete se pasará a hexadecimal y se procederá a enviarlo.
- \pagebreak
+
 \begin{lstlisting}[language=JavaScript]
 function create_message_frame(message_id, payload) {
    dlc = payload.toString().length;
@@ -150,7 +150,6 @@ function stop(socket, callback) {
    });
 
 }
-
 function avg(callback) {
    var sum = 0;
    if (is_stopping == true) {
@@ -159,12 +158,11 @@ function avg(callback) {
        }
        var media = sum / results.length;
        callback(media);
-   }
-}
+   }}
 \end{lstlisting}
 
 Con esto se puede establecer una conexión con el sensor y poder recibir la media del pulso cardiaco durante 20 seg. Hay que tener en cuenta la simplicidad del protocolo, ya que solo se captura una de las funciones (ritmo cardíaco) que proporciona el sensor Zephyr, ya que si se quiere obtener todos los datos la complejidad sería mucho mayor y para desarrollarlo en JavaScript se necesitaría mucha más información sobre cómo se envían las tramas y que contiene cada una de ellas.
-\pagebreak
+
 \section{Integración con Aaaida}
 
 Como se explicó en el capítulo anterior la consola de Aaaida es una plataforma web, que nos permite administrar toda la información de las aplicaciones vinculadas a ella. 
@@ -183,7 +181,7 @@ Para la creación del plugin de proyecto deberemos de seguir la arquitectura pri
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.35\textwidth]{./setup/arc}
+\includegraphics[width=0.30\textwidth]{./setup/arc}
 \caption{Arquitectura de los plugins}
 %\label{a:arquitectura}
 \end{center}
@@ -192,6 +190,7 @@ Para la creación del plugin de proyecto deberemos de seguir la arquitectura pri
 \subsubsection{Models}
 
 En el caso de este proyecto no se creará ningún modelo de datos nuevo, ya que Aaaida dispone de un conjunto de modelos de datos que concuerda con el modelo que se necesita. El modelo elegido será Value, que cumple todas las necesidades de las medidas realizadas.
+\pagebreak
 
 Los campos utilizados son los siguientes:
 
@@ -205,7 +204,6 @@ Los campos utilizados son los siguientes:
     measured_at: {type: Date, readonly: true}
 }
 \end{lstlisting}
-\pagebreak
 
 \begin{itemize}
 \item value: Será el valor de la medida de ritmo cardiaco registrada. 
@@ -249,7 +247,7 @@ module.exports.init = function (conf) {
 \end{lstlisting}
 
 El plugin no debe hacer ninguna función al iniciarse, por lo tanto, no debemos añadir nada en este fichero.
-\pagebreak
+
 \subsubsection{Package} 
 
 En este fichero, se describe toda la información necesaria del paquete. 
@@ -265,7 +263,6 @@ En este fichero, se describe toda la información necesaria del paquete.
  }
 }
 \end{lstlisting}
-
 Se puede apreciar las 2 dependencias a módulos externos nombrados anteriormente. 
 
 \subsubsection{Plugin} 
@@ -335,7 +332,6 @@ La página para la visualización de los resultados sería esta:
 %\label{sec:coioteSec}
 \end{center}
 \end{figure}
-\pagebreak
 
 \subsection{Recursos utilizados}
 
@@ -383,7 +379,8 @@ Value & post & /value \\ \hline
 
 Para realizar el despliegue de la aplicación, se llevaron a cabo un seguido de cambios. 
 Lo primero a realizar, fue la creación de un módulo npm con el plugin de coiote. Para poder resolver las dependencias necesarias al cargar Aaaida.
-Resuelto el problema con las dependencias, el siguiente cambio realizado fue en el Dockerfile, para crear la imagen de Aaaida. Se añadió la instalación de las librerías para el uso del bluetooth en la Raspberry Pi, necesarias para la comunicación con el sensor. 
+Resuelto el problema con las dependencias, el siguiente cambio realizado fue en el Dockerfile, para crear la imagen de Aaaida. Se añadió la instalación de las librerías para el uso del bluetooth en la Raspberry Pi, necesarias para la comunicación con el sensor.
+ 
 Las librerías instaladas fueron:
  
 \begin{itemize}
@@ -407,10 +404,11 @@ Una vez resuelto todos los problemas de comunicación, se procederá a el despli
 \begin{itemize}
 \item Desde el directorio de \texttt{aaaida-datastore} se ejecutará un script el cual nos instalará todas las dependencias del proyecto y ejecutará el  \texttt{docker build} de la imagen de Aaaida. (Este script se podrá ver en apéndices) 
 \end{itemize}
+\pagebreak
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{./setup/buildScript}
+\includegraphics[width=0.80\textwidth]{./setup/buildScript}
 \caption{Build del script}
 %\label{sec:coioteSec}
 \end{center}
@@ -419,11 +417,10 @@ Una vez resuelto todos los problemas de comunicación, se procederá a el despli
 \begin{itemize}
 \item Una vez generada la imagen, procederemos a ejecutar el \texttt{docker-compose.yml} desde su directorio. Generando los contenedores de \texttt{aaaida} y \texttt{mongo} con de sus volúmenes y conexiones.  
 \end{itemize}
-\pagebreak
 
 \begin{figure}[htb]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{./setup/Up2}
+\includegraphics[width=0.80\textwidth]{./setup/Up2}
 \caption{Creación de contenedores y ejecución}
 %\label{sec:coioteSec}
 \end{center}
@@ -431,6 +428,7 @@ Una vez resuelto todos los problemas de comunicación, se procederá a el despli
 
 \begin{itemize}
 \item Desplegado todos los contenedores y Aaaida funcionado, podemos acceder a la consola de Aaaida desde otro ordenador sabiendo la IP. 
+\pagebreak
 \item Para realizar una medida, se debe clicar en el botón “Take a measure” este realizará la conexión con el Zephyr, que cuando empiece a medir se encenderá el led azul y estará realizando capturas durante 20 seg. Una vez la medida esté realizada, se nos mostrará la medida y otro botón para validarla, en caso que la medida sea correcta, guardandola en la base de datos. 
 \end{itemize}
 
@@ -442,7 +440,6 @@ Una vez resuelto todos los problemas de comunicación, se procederá a el despli
 %\label{sec:coioteSec}
 \end{center}
 \end{figure}
-\pagebreak
 
 \begin{figure}[htb]
 \begin{center}
@@ -459,7 +456,7 @@ Una vez resuelto todos los problemas de comunicación, se procederá a el despli
 %\label{sec:coioteSec}
 \end{center}
 \end{figure}
-
+\pagebreak
 \begin{figure}[htb]
 \begin{center}
 \includegraphics[width=0.77\textwidth]{./setup/conect2}

@@ -134,6 +134,68 @@ captionpos=b
 }
 
 
+\usepackage{listingsutf8}
+
+\definecolor{olive}{rgb}{0.5, 0.5, 0.0}
+\lstdefinelanguage{docker}{
+  keywords={FROM, RUN, COPY, ADD, ENTRYPOINT, CMD,  ENV, WORKDIR, EXPOSE, LABEL, USER, VOLUME, STOPSIGNAL, ONBUILD, MAINTAINER},
+  keywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstdefinelanguage{docker-compose}{
+  keywords={image, environment, ports, container_name, ports, volumes, links},
+  keywordstyle=\color{blue}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+\lstdefinelanguage{docker-compose-2}{
+  keywords={version, volumes, services},
+  keywordstyle=\color{blue}\bfseries,
+  keywords=[2]{image, environment, ports, container_name, ports, links, build},
+  keywordstyle=[2]\color{olive}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{\#},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue},
+  inputencoding=utf8,
+  extendedchars=true
+}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\lstdefinestyle{Bash}
+{language=bash,
+keywordstyle=\color{blue},
+basicstyle=\ttfamily,
+morekeywords={peter@kbpet},
+%alsoletter={:~$},
+morekeywords=[2]{peter@kbpet:},
+keywordstyle=[2]{\color{red}},
+literate={\$}{{\textcolor{red}{\$}}}1 
+         {:}{{\textcolor{red}{:}}}1
+         {~}{{\textcolor{red}{\textasciitilde}}}1,
+}
 
 %% Símbols matemàtics de la American Mathematical Society
 \usepackage{amssymb,amsmath,amsfonts}  

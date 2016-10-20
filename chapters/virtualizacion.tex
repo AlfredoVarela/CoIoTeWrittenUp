@@ -202,10 +202,10 @@ La segunda manera de crear y personalizar imágenes es mediante un \texttt{Docke
 
 El comando \texttt{docker build} comunica al Daemon de Docker que debe de leer el \texttt{DockerFile} del directorio actual y seguir las instrucciones línea por línea para la creación de nuestra imagen. Este proceso va pintando los resultados por pantalla y generando imágenes intermedias para obtener así una caché que nos permitirá en caso de errores, una vez corregido el DockerFile, continuar desde el punto conflictivo. 
 
-\begin{verbatim}
+\begin{lstlisting}[style=Bash]
 FROM docker/whalesay:latest
 CMD echo "Proyecto CoIoTe" | cowsay
-\end{verbatim}
+\end{lstlisting}
 
 Aquí tenemos un ejemplo sencillo de DockerFile que nos servirá para explicar de una manera rápida como crearlos. 
 
@@ -266,7 +266,7 @@ Para detener el servicio y detener los contenedores.
 Docker-compose también permite ejecutar solo partes del \texttt{.yml} para levantar y/o detener solo algunos de los contenedores, pasándoles por parámetro el nombre del contenedor.
 
 \begin{center}
-\begin{verbatim}
+\begin{lstlisting}[language=docker-compose-2,breaklines=true,label={code:compose}]
 version: '2'
 services:
  mongo:
@@ -276,9 +276,9 @@ services:
   volumes:
    - mongo-data:/data/db
   command: /usr/bin/mongod --smallfiles --journal
-  \end{verbatim}
+  \end{lstlisting}
 \pagebreak  
-  \begin{verbatim}
+\begin{lstlisting}[language=docker-compose-2,breaklines=true,label={code:compose}]
  aaaida:
   container_name: aaaidaArm
   restart: always
@@ -292,7 +292,7 @@ services:
 volumes:\newline
  mongo-data:
    driver: local
-\end{verbatim}
+\end{lstlisting}
 \end{center}
 
 Este es un ejemplo de Docker-compose, exactamente el utilizado en el proyecto para poder levantar la infraestructura de Aaaida en la Raspberry Pi. 
