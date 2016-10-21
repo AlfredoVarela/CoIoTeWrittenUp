@@ -25,7 +25,7 @@ Algunas de las especificaciones mas importantes de las Raspberry Pi 3 son las si
 \section{Virtualización de la Raspberry Pi}
 
 Al inicio del proyecto no se disponía de una Raspberry Pi para poder realizar las pruebas y se decidió emularla mediante Qemu. 
-Qemu es una aplicación que nos permite emular, mediante máquinas virtuales, gran parte de los sistemas operativos. 
+Qemu es una aplicación que nos permite emular, mediante máquinas virtuales, gran parte de arquitecturas existentes. 
 Es realmente sencillo emular una imagen de Raspbian Pi si no fuera por un detalle, como se comenta en el apartado 2.2: ¿Qué es Docker? Docker necesita un sistema x64 o Linux kernel 3.8+ mientras que Raspberry Pi ejecuta un sistema ARM, lo que conlleva que Docker no sea compatible a primera instancia con la Raspberry Pi. 
 La solución para este gran problema es la utilización de Hypriot, una imagen de Raspbian modificada con Docker instalado. 
 La instalación de esta imagen requiere hacer unos retoques ya que el kernel de Qemu no es del todo compatible con el de la imagen de Hypriot. Desafortunadamente, las incompatibilidades del kernel no permitían hacer un uso correcto de modo que se decidió apartar por completo la posibilidad de poder emular una Raspberry Pi con Docker instalado ya que las incompatibilidades del kernel no lo permitían.
