@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  21 OCT 2016 11:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.6)  21 OCT 2016 13:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -3131,11 +3131,11 @@ Package babel Info: Redefining spanish shorthand "!
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 171.
 
-<./setup/arc.png, id=771, 182.6825pt x 144.54pt>
+<./setup/arc.png, id=771, 201.75375pt x 128.48pt>
 File: ./setup/arc.png Graphic file (type png)
  <use ./setup/arc.png>
 Package pdftex.def Info: ./setup/arc.png used on input line 184.
-(pdftex.def)             Requested size: 128.0387pt x 101.30962pt.
+(pdftex.def)             Requested size: 128.0387pt x 81.53683pt.
 LaTeX Info: Redefining \. on input line 194.
 LaTeX Info: Redefining \% on input line 194.
 Package babel Info: Redefining spanish shorthand <<
@@ -3162,7 +3162,8 @@ Package babel Info: Redefining spanish shorthand "!
 (babel)             in language  on input line 194.
 Package babel Info: Redefining spanish shorthand "?
 (babel)             in language  on input line 194.
- [35 <./setup/arc.png (PNG copy)>]
+
+[35 <./setup/arc.png (PNG copy)>]
 (/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2015/12/03 v1.1r UTF-8 support for inputenc
 )
@@ -4172,7 +4173,7 @@ f-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/hel
 vetic/uhvb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on plantilla_tfc.pdf (71 pages, 3616467 bytes).
+Output written on plantilla_tfc.pdf (71 pages, 3616993 bytes).
 PDF statistics:
  1230 PDF objects out of 1440 (max. 8388607)
  1103 compressed objects within 12 object streams
